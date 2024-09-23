@@ -8,19 +8,13 @@ import Foundation
 import SwiftData
 
 @Model
-class RunPlan {
+class RunPlan: ObservableObject, Identifiable {
+    var id: UUID = UUID()
     var name: String
-    var stages: [RunStage]  // 非持久化的结构体数组
-    
+    var stages: [RunStage] = []
+
     init(name: String, stages: [RunStage]) {
         self.name = name
-        self.stages = stages
+        self.stages = stages.sorted { $0.index < $1.index } // Sort based on the index
     }
 }
-
-// 这个结构体不是模型，不会被持久化，只是作为属性
-struct RunStage {
-    var name: String
-    var distance: Double
-}
-

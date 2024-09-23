@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		300F58252C8AEF2500F1A7F5 /* _______App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58242C8AEF2500F1A7F5 /* _______App.swift */; };
+		300F58252C8AEF2500F1A7F5 /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58242C8AEF2500F1A7F5 /* MyApp.swift */; };
 		300F58272C8AEF2500F1A7F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58262C8AEF2500F1A7F5 /* ContentView.swift */; };
 		300F58292C8AEF2500F1A7F5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58282C8AEF2500F1A7F5 /* Item.swift */; };
 		300F582B2C8AEF2700F1A7F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */; };
@@ -15,6 +15,29 @@
 		300F58382C8AEF2800F1A7F5 /* _______Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58372C8AEF2800F1A7F5 /* _______Tests.swift */; };
 		300F58422C8AEF2800F1A7F5 /* _______UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58412C8AEF2800F1A7F5 /* _______UITests.swift */; };
 		300F58442C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58432C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift */; };
+		300F58552C8AF1B400F1A7F5 /* RunPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58542C8AF1B400F1A7F5 /* RunPlan.swift */; };
+		300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */; };
+		300F58592C8AF22C00F1A7F5 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */; };
+		30712FD72C8C069B00E5D69B /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD62C8C069B00E5D69B /* RunningRecord.swift */; };
+		30712FD92C8C06BD00E5D69B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */; };
+		30712FDB2C8C074200E5D69B /* RunningRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */; };
+		30712FDD2C8C07C800E5D69B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FDC2C8C07C800E5D69B /* MapView.swift */; };
+		30712FE02C92D7A600E5D69B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FDF2C92D7A600E5D69B /* LocationManager.swift */; };
+		30712FE22C92D7DC00E5D69B /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FE12C92D7DC00E5D69B /* BackgroundTaskManager.swift */; };
+		307457EE2C8B085E00843C84 /* RunDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457ED2C8B085E00843C84 /* RunDetailView.swift */; };
+		307457F02C8B141200843C84 /* RunRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457EF2C8B141200843C84 /* RunRecord.swift */; };
+		307457F22C8B143C00843C84 /* RunningRecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457F12C8B143C00843C84 /* RunningRecordListView.swift */; };
+		307457F42C8B2F9A00843C84 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457F32C8B2F9A00843C84 /* UserDefaultsManager.swift */; };
+		307457F82C8B48CE00843C84 /* RunRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457F72C8B48CE00843C84 /* RunRecordDetailView.swift */; };
+		30FCB0302C93FDC700258BAF /* AddRunPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB02F2C93FDC700258BAF /* AddRunPlanView.swift */; };
+		30FCB0322C941E4E00258BAF /* RunStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0312C941E4E00258BAF /* RunStage.swift */; };
+		30FCB0342C941F2F00258BAF /* RunStageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0332C941F2F00258BAF /* RunStageResult.swift */; };
+		30FCB0392C9423D500258BAF /* JSONRunPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0382C9423D500258BAF /* JSONRunPlan.swift */; };
+		30FCB03B2C9424B900258BAF /* runplans.json in Resources */ = {isa = PBXBuildFile; fileRef = 30FCB03A2C9424B900258BAF /* runplans.json */; };
+		30FCB03F2C94289300258BAF /* RunPlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB03E2C94289300258BAF /* RunPlanListView.swift */; };
+		30FCB0412C9428B400258BAF /* RunPlanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0402C9428B400258BAF /* RunPlanDetailView.swift */; };
+		30FCB0432C9429B500258BAF /* AddRunStageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0422C9429B500258BAF /* AddRunStageView.swift */; };
+		30FCB0452C95795200258BAF /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0442C95795200258BAF /* RunManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		300F58212C8AEF2500F1A7F5 /* 我的跑步我做主.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "我的跑步我做主.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		300F58242C8AEF2500F1A7F5 /* _______App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_______App.swift"; sourceTree = "<group>"; };
+		300F58242C8AEF2500F1A7F5 /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		300F58262C8AEF2500F1A7F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		300F58282C8AEF2500F1A7F5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +69,30 @@
 		300F583D2C8AEF2800F1A7F5 /* 我的跑步我做主UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "我的跑步我做主UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		300F58412C8AEF2800F1A7F5 /* _______UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_______UITests.swift"; sourceTree = "<group>"; };
 		300F58432C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_______UITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		300F58542C8AF1B400F1A7F5 /* RunPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlan.swift; sourceTree = "<group>"; };
+		300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTracker.swift; sourceTree = "<group>"; };
+		300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		30712FD62C8C069B00E5D69B /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
+		30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordViewModel.swift; sourceTree = "<group>"; };
+		30712FDC2C8C07C800E5D69B /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		30712FDE2C92D6B300E5D69B /* --------Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "--------Info.plist"; sourceTree = SOURCE_ROOT; };
+		30712FDF2C92D7A600E5D69B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		30712FE12C92D7DC00E5D69B /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		307457ED2C8B085E00843C84 /* RunDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailView.swift; sourceTree = "<group>"; };
+		307457EF2C8B141200843C84 /* RunRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRecord.swift; sourceTree = "<group>"; };
+		307457F12C8B143C00843C84 /* RunningRecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordListView.swift; sourceTree = "<group>"; };
+		307457F32C8B2F9A00843C84 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		307457F72C8B48CE00843C84 /* RunRecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRecordDetailView.swift; sourceTree = "<group>"; };
+		30FCB02F2C93FDC700258BAF /* AddRunPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunPlanView.swift; sourceTree = "<group>"; };
+		30FCB0312C941E4E00258BAF /* RunStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStage.swift; sourceTree = "<group>"; };
+		30FCB0332C941F2F00258BAF /* RunStageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStageResult.swift; sourceTree = "<group>"; };
+		30FCB0382C9423D500258BAF /* JSONRunPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRunPlan.swift; sourceTree = "<group>"; };
+		30FCB03A2C9424B900258BAF /* runplans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runplans.json; sourceTree = "<group>"; };
+		30FCB03E2C94289300258BAF /* RunPlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlanListView.swift; sourceTree = "<group>"; };
+		30FCB0402C9428B400258BAF /* RunPlanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlanDetailView.swift; sourceTree = "<group>"; };
+		30FCB0422C9429B500258BAF /* AddRunStageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunStageView.swift; sourceTree = "<group>"; };
+		30FCB0442C95795200258BAF /* RunManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +143,14 @@
 		300F58232C8AEF2500F1A7F5 /* 我的跑步我做主 */ = {
 			isa = PBXGroup;
 			children = (
-				300F58242C8AEF2500F1A7F5 /* _______App.swift */,
+				30FCB0372C9422DF00258BAF /* Resource */,
+				30712FDE2C92D6B300E5D69B /* --------Info.plist */,
+				300F58512C8AF17A00F1A7F5 /* ViewModels */,
+				300F58532C8AF18C00F1A7F5 /* Views */,
+				300F58502C8AF0E900F1A7F5 /* Models */,
+				30712FD52C8C062000E5D69B /* Persistence */,
+				300F58522C8AF18300F1A7F5 /* Utilities */,
+				300F58242C8AEF2500F1A7F5 /* MyApp.swift */,
 				300F58262C8AEF2500F1A7F5 /* ContentView.swift */,
 				300F58282C8AEF2500F1A7F5 /* Item.swift */,
 				300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */,
@@ -128,6 +182,71 @@
 				300F58432C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift */,
 			);
 			path = "我的跑步我做主UITests";
+			sourceTree = "<group>";
+		};
+		300F58502C8AF0E900F1A7F5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				300F58542C8AF1B400F1A7F5 /* RunPlan.swift */,
+				307457EF2C8B141200843C84 /* RunRecord.swift */,
+				30712FD62C8C069B00E5D69B /* RunningRecord.swift */,
+				30FCB0312C941E4E00258BAF /* RunStage.swift */,
+				30FCB0332C941F2F00258BAF /* RunStageResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		300F58512C8AF17A00F1A7F5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */,
+				30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */,
+				30FCB0442C95795200258BAF /* RunManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		300F58522C8AF18300F1A7F5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */,
+				30712FDF2C92D7A600E5D69B /* LocationManager.swift */,
+				30712FE12C92D7DC00E5D69B /* BackgroundTaskManager.swift */,
+				30FCB0382C9423D500258BAF /* JSONRunPlan.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		300F58532C8AF18C00F1A7F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30712FDC2C8C07C800E5D69B /* MapView.swift */,
+				307457ED2C8B085E00843C84 /* RunDetailView.swift */,
+				307457F12C8B143C00843C84 /* RunningRecordListView.swift */,
+				307457F72C8B48CE00843C84 /* RunRecordDetailView.swift */,
+				30FCB02F2C93FDC700258BAF /* AddRunPlanView.swift */,
+				30FCB03E2C94289300258BAF /* RunPlanListView.swift */,
+				30FCB0402C9428B400258BAF /* RunPlanDetailView.swift */,
+				30FCB0422C9429B500258BAF /* AddRunStageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		30712FD52C8C062000E5D69B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				307457F32C8B2F9A00843C84 /* UserDefaultsManager.swift */,
+				30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		30FCB0372C9422DF00258BAF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				30FCB03A2C9424B900258BAF /* runplans.json */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				300F582E2C8AEF2700F1A7F5 /* Preview Assets.xcassets in Resources */,
+				30FCB03B2C9424B900258BAF /* runplans.json in Resources */,
 				300F582B2C8AEF2700F1A7F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,9 +380,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30712FDB2C8C074200E5D69B /* RunningRecordViewModel.swift in Sources */,
+				300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */,
+				30712FD92C8C06BD00E5D69B /* PersistenceManager.swift in Sources */,
+				300F58592C8AF22C00F1A7F5 /* SpeechManager.swift in Sources */,
+				30712FE02C92D7A600E5D69B /* LocationManager.swift in Sources */,
+				30FCB0432C9429B500258BAF /* AddRunStageView.swift in Sources */,
 				300F58272C8AEF2500F1A7F5 /* ContentView.swift in Sources */,
 				300F58292C8AEF2500F1A7F5 /* Item.swift in Sources */,
-				300F58252C8AEF2500F1A7F5 /* _______App.swift in Sources */,
+				30FCB0412C9428B400258BAF /* RunPlanDetailView.swift in Sources */,
+				30712FE22C92D7DC00E5D69B /* BackgroundTaskManager.swift in Sources */,
+				307457EE2C8B085E00843C84 /* RunDetailView.swift in Sources */,
+				30712FDD2C8C07C800E5D69B /* MapView.swift in Sources */,
+				307457F82C8B48CE00843C84 /* RunRecordDetailView.swift in Sources */,
+				30FCB0452C95795200258BAF /* RunManager.swift in Sources */,
+				30FCB0302C93FDC700258BAF /* AddRunPlanView.swift in Sources */,
+				300F58552C8AF1B400F1A7F5 /* RunPlan.swift in Sources */,
+				307457F42C8B2F9A00843C84 /* UserDefaultsManager.swift in Sources */,
+				307457F22C8B143C00843C84 /* RunningRecordListView.swift in Sources */,
+				30FCB0342C941F2F00258BAF /* RunStageResult.swift in Sources */,
+				30FCB03F2C94289300258BAF /* RunPlanListView.swift in Sources */,
+				30FCB0392C9423D500258BAF /* JSONRunPlan.swift in Sources */,
+				307457F02C8B141200843C84 /* RunRecord.swift in Sources */,
+				300F58252C8AEF2500F1A7F5 /* MyApp.swift in Sources */,
+				30FCB0322C941E4E00258BAF /* RunStage.swift in Sources */,
+				30712FD72C8C069B00E5D69B /* RunningRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,8 +568,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"我的跑步我做主/Preview Content\"";
+				DEVELOPMENT_TEAM = A52XBB687P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "--------Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,8 +601,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"我的跑步我做主/Preview Content\"";
+				DEVELOPMENT_TEAM = A52XBB687P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "--------Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
