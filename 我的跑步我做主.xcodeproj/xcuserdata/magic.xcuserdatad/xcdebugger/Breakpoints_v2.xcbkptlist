@@ -34,6 +34,36 @@
             endingLineNumber = "32"
             landmarkName = "getCoordinates()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AD6FB70-B3A9-4555-993E-02FD312E5006 - 91a6bf043986dcf3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;.RunningRecord.getCoordinates() -&gt; Swift.Array&lt;__C.CLLocationCoordinate2D&gt;"
+                  moduleName = "&#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/magic/Workspace/IOS-running/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/Models/RunningRecord.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32">
+               </Location>
+               <Location
+                  uuid = "8AD6FB70-B3A9-4555-993E-02FD312E5006 - 1114e7915e3281c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Optional&lt;__C.CLLocationCoordinate2D&gt; in &#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;.RunningRecord.getCoordinates() -&gt; Swift.Array&lt;__C.CLLocationCoordinate2D&gt;"
+                  moduleName = "&#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/magic/Workspace/IOS-running/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/Models/RunningRecord.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -50,6 +80,36 @@
             endingLineNumber = "33"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5C4559D1-8F33-400C-82E1-1AC40FEE483C - 55276eedf86ba522"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in &#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;.RunningRecordListView.body.getter : some"
+                  moduleName = "&#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/magic/Workspace/IOS-running/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/Views/RunningRecordListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33">
+               </Location>
+               <Location
+                  uuid = "5C4559D1-8F33-400C-82E1-1AC40FEE483C - f049927de5609471"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (&#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;.RunningRecord) -&gt; &#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;.RunningRecordViewModel in closure #2 () -&gt; () in &#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;.RunningRecordListView.body.getter : some"
+                  moduleName = "&#x6211;&#x7684;&#x8dd1;&#x6b65;&#x6211;&#x505a;&#x4e3b;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/magic/Workspace/IOS-running/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/%E6%88%91%E7%9A%84%E8%B7%91%E6%AD%A5%E6%88%91%E5%81%9A%E4%B8%BB/Views/RunningRecordListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

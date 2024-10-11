@@ -7,6 +7,7 @@ struct ContentView: View {
     @State private var selectedPlan: RunPlan?
     @State private var runRecords: [RunRecord] = []  // 添加一个 @State 的 runRecords 变量
 
+    @ObservedObject var runTracker = RunTracker(plan: RunPlan(name: "Example Plan", stages: [])) // Example Plan for testing
 
     var body: some View {
         NavigationView {
@@ -17,16 +18,41 @@ struct ContentView: View {
 
                 // 显示所有计划
                 List {
-                    ForEach(runPlans, id: \.name) { plan in
+                    ForEach($runPlans, id: \.id) { $plan in
                         NavigationLink(destination: RunDetailView(plan: plan, runRecords: $runRecords)) {
-                            Text("\(plan.name)")
-                                .font(.title)
+                            HStack {
+                                Text(plan.name)
+                            }
+                            .font(.title)
                         }
                     }
                     .onDelete(perform: deletePlan)  // 支持删除功能
                 }
+
+                if runTracker.isRunning {
+                    NavigationLink(destination: RunDetailView(plan: runTracker.plan, runRecords: $runRecords)) {
+                        Text("进行中的训练：\(runTracker.plan.name)")
+                            .font(.title)
+                            .padding()
+                            .background(Color.orange)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                } else {
+                    Button(action: {
+                        print("没有进行中的训练")
+                    }) {
+                        Text("进行中的训练：无")
+                            .font(.title)
+                            .padding()
+                            .background(Color.gray)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                }
                 
-                // 修改为不传递 runRecords 参数
                 NavigationLink(destination: RunningRecordListView()) {
                     Text("训练记录")
                         .font(.title)
@@ -35,6 +61,7 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
+                .padding()
 
                 // 添加新计划按钮
                 Button(action: {
@@ -57,22 +84,22 @@ struct ContentView: View {
                         }
                     }
                 })
-                
-                Spacer()
-                
-                NavigationLink(destination: RunPlanListView()) {
-                                    Text("管理跑步计划")
-                                        .font(.title)
-                                        .padding()
-                                        .background(Color.blue)
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
-                                }
-                                .padding()
 
+                Spacer()
+
+                NavigationLink(destination: RunPlanListView()) {
+                    Text("管理跑步计划")
+                        .font(.title)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .padding()
             }
             .onAppear {
                 runPlans = PersistenceManager.shared.fetchAllRunPlans()
+                runTracker.objectWillChange.send()  // 添加这行确保重新绘制视图
             }
         }
     }
@@ -90,3 +117,4 @@ struct ContentView: View {
         }
     }
 }
+

@@ -71,31 +71,33 @@ class PersistenceManager {
         let existingPlans = fetchAllRunPlans()
         return existingPlans.isEmpty
     }
-    // MARK: - RunningRecord 的操作
     
+    // MARK: - RunningRecord 的操作
     func saveRunningRecord(_ record: RunningRecord) throws {
         guard let container = container else {
             throw NSError(domain: "PersistenceManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "ModelContainer is not initialized"])
         }
-        
-        // 判断记录是否已经存在，若存在则更新
+        let id = record.id
         let fetchRequest = FetchDescriptor<RunningRecord>(
-            predicate: #Predicate { $0.id == record.id }  // 假设你为 RunningRecord 添加了唯一的 id
+            predicate: #Predicate { recordInStore in
+                recordInStore.id == id
+            }
         )
-
+        
         let existingRecords = try container.mainContext.fetch(fetchRequest)
-
+        
         if let existingRecord = existingRecords.first {
-            // 更新已有记录
+            // 更新现有记录
             existingRecord.totalDistance = record.totalDistance
             existingRecord.totalTime = record.totalTime
-            existingRecord.coordinates = record.coordinates
             existingRecord.endTime = record.endTime
+            existingRecord.coordinates = record.coordinates
         } else {
-            // 如果不存在，则插入新记录
+            // 插入新记录
             container.mainContext.insert(record)
         }
-
+        
+        // 保存上下文
         try container.mainContext.save()
     }
 

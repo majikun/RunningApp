@@ -18,6 +18,9 @@
 		300F58552C8AF1B400F1A7F5 /* RunPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58542C8AF1B400F1A7F5 /* RunPlan.swift */; };
 		300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */; };
 		300F58592C8AF22C00F1A7F5 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */; };
+		304B28122CB7AFE900FE65DA /* RunningAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28112CB7AFE900FE65DA /* RunningAttributes.swift */; };
+		304B28142CB7B09600FE65DA /* RunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28132CB7B09600FE65DA /* RunningView.swift */; };
+		304B28162CB7BFC500FE65DA /* LiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28152CB7BFC500FE65DA /* LiveActivityView.swift */; };
 		30712FD72C8C069B00E5D69B /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD62C8C069B00E5D69B /* RunningRecord.swift */; };
 		30712FD92C8C06BD00E5D69B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */; };
 		30712FDB2C8C074200E5D69B /* RunningRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */; };
@@ -72,6 +75,9 @@
 		300F58542C8AF1B400F1A7F5 /* RunPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlan.swift; sourceTree = "<group>"; };
 		300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTracker.swift; sourceTree = "<group>"; };
 		300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		304B28112CB7AFE900FE65DA /* RunningAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningAttributes.swift; sourceTree = "<group>"; };
+		304B28132CB7B09600FE65DA /* RunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningView.swift; sourceTree = "<group>"; };
+		304B28152CB7BFC500FE65DA /* LiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityView.swift; sourceTree = "<group>"; };
 		30712FD62C8C069B00E5D69B /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
 		30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordViewModel.swift; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 				30712FD62C8C069B00E5D69B /* RunningRecord.swift */,
 				30FCB0312C941E4E00258BAF /* RunStage.swift */,
 				30FCB0332C941F2F00258BAF /* RunStageResult.swift */,
+				304B28112CB7AFE900FE65DA /* RunningAttributes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +235,8 @@
 				30FCB03E2C94289300258BAF /* RunPlanListView.swift */,
 				30FCB0402C9428B400258BAF /* RunPlanDetailView.swift */,
 				30FCB0422C9429B500258BAF /* AddRunStageView.swift */,
+				304B28132CB7B09600FE65DA /* RunningView.swift */,
+				304B28152CB7BFC500FE65DA /* LiveActivityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -380,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304B28122CB7AFE900FE65DA /* RunningAttributes.swift in Sources */,
 				30712FDB2C8C074200E5D69B /* RunningRecordViewModel.swift in Sources */,
 				300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */,
 				30712FD92C8C06BD00E5D69B /* PersistenceManager.swift in Sources */,
@@ -392,9 +402,11 @@
 				30712FE22C92D7DC00E5D69B /* BackgroundTaskManager.swift in Sources */,
 				307457EE2C8B085E00843C84 /* RunDetailView.swift in Sources */,
 				30712FDD2C8C07C800E5D69B /* MapView.swift in Sources */,
+				304B28162CB7BFC500FE65DA /* LiveActivityView.swift in Sources */,
 				307457F82C8B48CE00843C84 /* RunRecordDetailView.swift in Sources */,
 				30FCB0452C95795200258BAF /* RunManager.swift in Sources */,
 				30FCB0302C93FDC700258BAF /* AddRunPlanView.swift in Sources */,
+				304B28142CB7B09600FE65DA /* RunningView.swift in Sources */,
 				300F58552C8AF1B400F1A7F5 /* RunPlan.swift in Sources */,
 				307457F42C8B2F9A00843C84 /* UserDefaultsManager.swift in Sources */,
 				307457F22C8B143C00843C84 /* RunningRecordListView.swift in Sources */,
@@ -575,6 +587,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -608,6 +621,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -32,6 +32,13 @@ struct RunDetailView: View {
                 Text("当前阶段距离: \(Int(tracker.currentStageDistance)) 米")
                     .font(.title3)
                     .padding()
+            } else {
+                Text(plan.name)
+                    .font(.largeTitle)
+                    .padding()
+                Text("准备开始训练...")
+                    .font(.title2)
+                    .padding()
             }
 
             if !runManager.isRunning {
@@ -73,9 +80,18 @@ struct RunDetailView: View {
                 }
             }
         }
-        .onChange(of: runManager.isRunning) {
+        .onChange(of: runManager.isRunning) { _ in
             if !runManager.isRunning {
                 stopRun()
+            }
+        }
+        .onAppear {
+            if runManager.isRunning, let tracker = runManager.runTracker {
+                // 恢复当前正在进行的训练，并继续展示距离
+                print("当前的训练正在进行，计划名：\(tracker.planName)，总距离：\(tracker.totalDistance) 米")
+                // 你可以在这里触发任何额外的逻辑，例如重新请求 GPS 更新等
+            } else {
+                print("没有正在进行的训练")
             }
         }
     }
