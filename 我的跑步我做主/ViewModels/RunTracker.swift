@@ -14,6 +14,8 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
     @Published var totalDistance: Double = 0.0
     @Published var currentStageDistance: Double = 0.0
     @Published var currentStageIndex = 0
+    @Published var currentStageName = ""
+    @Published var currentStageObject: Double = 0.0
     @Published var coordinates: [CLLocationCoordinate2D] = []
     @Published var isCompleted: Bool = false
     @Published var time: TimeInterval = 0.0
@@ -125,6 +127,8 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
     // 开始下一个阶段
     func startNextStage() {
         currentStageDistance = 0.0
+        currentStageName = stages[currentStageIndex].name
+        currentStageObject = stages[currentStageIndex].distance
         lastLocation = nil  // 确保从 0 重新计数
         stageResults[currentStageIndex].startTime = Date()  // 记录阶段开始时间
         SpeechManager.shared.announceStage(stages[currentStageIndex].name, distance: stages[currentStageIndex].distance)
@@ -179,6 +183,8 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
                 totalTime: 0,
                 totalDistance: 0,
                 currentStageIndex: currentStageIndex,
+                currentStageName: currentStageName,
+                currentStageObject: currentStageObject,
                 currentStageDistance: 0
             )
             do {
@@ -199,6 +205,8 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
                 totalTime: time,
                 totalDistance: totalDistance,
                 currentStageIndex: currentStageIndex,
+                currentStageName: currentStageName,
+                currentStageObject: currentStageObject,
                 currentStageDistance: currentStageDistance
             )
             Task {

@@ -32,6 +32,11 @@ class SpeechManager {
             print("Failed to configure audio session: \(error)")
         }
     }
+    
+    func announce(_ message: String) {
+        // Implementation for announcing the message
+        print("Announcing: \(message)")
+    }
 
     // 语音提示阶段
     func announceStage(_ stage: String, distance: Double) {

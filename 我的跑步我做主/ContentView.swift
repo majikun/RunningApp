@@ -11,7 +11,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 20) {
                 Text("选择一个跑步节奏")
                     .font(.largeTitle)
                     .padding()
@@ -23,62 +23,72 @@ struct ContentView: View {
                             HStack {
                                 Text(plan.name)
                             }
-                            .font(.title)
+                            .font(.headline)
+                            .padding(8)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
                         }
                     }
                     .onDelete(perform: deletePlan)  // 支持删除功能
                 }
-                
+                .listStyle(PlainListStyle())
+                .frame(maxHeight: 300)
+                .padding(.horizontal)
+
                 if let tracker = runManager.runTracker, runManager.isRunning {
                     NavigationLink(destination: RunDetailView(plan: tracker.plan, runRecords: $runRecords)) {
                         Text("进行中的训练：\(tracker.plan.name)")
-                            .font(.title)
+                            .font(.title2)
                             .padding()
+                            .frame(maxWidth: .infinity)
                             .background(Color.orange)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .padding()
+                    .padding(.horizontal)
                 } else {
                     Button(action: {
                         print("没有进行中的训练")
                     }) {
                         Text("进行中的训练：无")
-                            .font(.title)
+                            .font(.title2)
                             .padding()
+                            .frame(maxWidth: .infinity)
                             .background(Color.gray)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .padding()
+                    .padding(.horizontal)
                 }
 
                 NavigationLink(destination: RunningRecordListView()) {
                     Text("训练记录")
-                        .font(.title)
+                        .font(.title2)
                         .padding()
+                        .frame(maxWidth: .infinity)
                         .background(Color.gray)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                .padding()
+                .padding(.horizontal)
 
                 Spacer()
 
                 NavigationLink(destination: RunPlanListView()) {
                     Text("管理跑步计划")
-                        .font(.title)
+                        .font(.title2)
                         .padding()
+                        .frame(maxWidth: .infinity)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                .padding()
+                .padding(.horizontal)
             }
+            .padding()
             .onAppear {
                 runPlans = PersistenceManager.shared.fetchAllRunPlans().sorted(by: { $0.name < $1.name })
             }
-
         }
     }
 

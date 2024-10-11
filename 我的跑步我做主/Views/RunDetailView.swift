@@ -1,9 +1,3 @@
-//
-//  RunDetailView.swift
-//  我的跑步我做主
-//
-//  Created by Jake Ma on 9/6/24.
-//
 import SwiftUI
 
 struct RunDetailView: View {
@@ -78,26 +72,26 @@ struct RunDetailView: View {
                 }
             }
             ScrollView {
-                            VStack(alignment: .leading) {
-                                Text("跑步节奏详情")
-                                    .font(.headline)
-                                    .padding(.top, 20)
-                                ForEach(plan.stages.sorted(by: { $0.index < $1.index }), id: \.id) { stage in
-                                    HStack {
-                                        Text("阶段 \(stage.index + 1)")
-                                            .font(.subheadline)
-                                        Spacer()
-                                        Text(stage.name)
-                                            .font(.body)
-                                        Spacer()
-                                        Text("距离: \(Int(stage.distance)) 米")
-                                            .font(.body)
-                                    }
-                                    .padding(.vertical, 5)
-                                }
-                            }
-                            .padding()
+                VStack(alignment: .leading) {
+                    Text("跑步节奏详情")
+                        .font(.headline)
+                        .padding(.top, 20)
+                    ForEach(plan.stages.sorted(by: { $0.index < $1.index }), id: \.id) { stage in
+                        HStack {
+                            Text("阶段 \(stage.index + 1)")
+                                .font(.subheadline)
+                            Spacer()
+                            Text(stage.name)
+                                .font(.body)
+                            Spacer()
+                            Text("距离: \(Int(stage.distance)) 米")
+                                .font(.body)
                         }
+                        .padding(.vertical, 5)
+                    }
+                }
+                .padding()
+            }
         }
         .onAppear {
             if runManager.isRunning, let tracker = runManager.runTracker {
@@ -141,5 +135,4 @@ struct RunDetailView: View {
         // 最后再停止跑步
         runManager.stopRun()
     }
-
 }

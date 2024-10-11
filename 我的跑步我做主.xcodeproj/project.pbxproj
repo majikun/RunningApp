@@ -29,6 +29,7 @@
 		304B283C2CB907B500FE65DA /* RunningWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28382CB9060E00FE65DA /* RunningWidgetAttributes.swift */; };
 		304B28412CB90ABB00FE65DA /* RunningWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B283D2CB90A5B00FE65DA /* RunningWidget.swift */; };
 		304B28422CB90AC000FE65DA /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B283F2CB90A6B00FE65DA /* AppIntent.swift */; };
+		304B28442CB92A5C00FE65DA /* AutoPauseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28432CB92A5C00FE65DA /* AutoPauseDetector.swift */; };
 		30712FD72C8C069B00E5D69B /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD62C8C069B00E5D69B /* RunningRecord.swift */; };
 		30712FD92C8C06BD00E5D69B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */; };
 		30712FDB2C8C074200E5D69B /* RunningRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */; };
@@ -115,6 +116,7 @@
 		304B28382CB9060E00FE65DA /* RunningWidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningWidgetAttributes.swift; sourceTree = "<group>"; };
 		304B283D2CB90A5B00FE65DA /* RunningWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningWidget.swift; sourceTree = "<group>"; };
 		304B283F2CB90A6B00FE65DA /* AppIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		304B28432CB92A5C00FE65DA /* AutoPauseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPauseDetector.swift; sourceTree = "<group>"; };
 		30712FD62C8C069B00E5D69B /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
 		30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordViewModel.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				30712FDF2C92D7A600E5D69B /* LocationManager.swift */,
 				30712FE12C92D7DC00E5D69B /* BackgroundTaskManager.swift */,
 				30FCB0382C9423D500258BAF /* JSONRunPlan.swift */,
+				304B28432CB92A5C00FE65DA /* AutoPauseDetector.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				300F58272C8AEF2500F1A7F5 /* ContentView.swift in Sources */,
 				300F58292C8AEF2500F1A7F5 /* Item.swift in Sources */,
 				30FCB0412C9428B400258BAF /* RunPlanDetailView.swift in Sources */,
+				304B28442CB92A5C00FE65DA /* AutoPauseDetector.swift in Sources */,
 				30712FE22C92D7DC00E5D69B /* BackgroundTaskManager.swift in Sources */,
 				307457EE2C8B085E00843C84 /* RunDetailView.swift in Sources */,
 				30712FDD2C8C07C800E5D69B /* MapView.swift in Sources */,

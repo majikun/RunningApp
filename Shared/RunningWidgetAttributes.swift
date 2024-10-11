@@ -15,6 +15,8 @@ struct RunningWidgetAttributes: ActivityAttributes {
         var totalTime: TimeInterval       // 总时长（秒）
         var totalDistance: Double         // 总距离（米）
         var currentStageIndex: Int        // 当前阶段索引
+        var currentStageName: String      // 当前阶段索引
+        var currentStageObject: Double       // 当前阶段目标
         var currentStageDistance: Double  // 当前阶段距离（米）
     }
 
