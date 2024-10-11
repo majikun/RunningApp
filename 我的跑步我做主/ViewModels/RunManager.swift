@@ -6,17 +6,44 @@
 //
 
 import Foundation
+import Combine
 
 class RunManager: ObservableObject {
     static let shared = RunManager()
 
     @Published var isRunning = false
     @Published var isPaused = false
-    @Published var runTracker: RunTracker?
+    @Published var runTracker: RunTracker? {
+        didSet {
+            // 当 runTracker 被赋值时，订阅其 objectWillChange 和 isCompleted
+            if let tracker = runTracker {
+                trackerCancellable = tracker.objectWillChange
+                    .sink { [weak self] _ in
+                        self?.objectWillChange.send()
+                    }
+                
+                // 订阅 runTracker 的 isCompleted 属性
+                trackerCompletionCancellable = tracker.$isCompleted
+                    .sink { [weak self] isCompleted in
+                        if isCompleted {
+                            DispatchQueue.main.async {
+                                self?.handleRunCompletion()
+                            }
+                        }
+                    }
+            } else {
+                trackerCancellable = nil
+                trackerCompletionCancellable = nil
+            }
+        }
+    }
+    
     var currentRunningRecord: RunningRecord?  // 持有当前跑步记录的引用
 
     var saveTimer: Timer?
-
+    private var trackerCancellable: AnyCancellable?
+    private var trackerCompletionCancellable: AnyCancellable?
+    
     private init() {}
 
     @MainActor func startRun(plan: RunPlan) {
@@ -34,8 +61,8 @@ class RunManager: ObservableObject {
         isRunning = false
         runTracker?.stopRun()
         runTracker = nil
-        stopSaveTimer()  // 停止定时保存
-        saveRunData()  // 最后一次保存跑步记录
+        stopSaveTimer()
+        saveRunData()
     }
 
     func pauseRun() {
@@ -90,5 +117,13 @@ class RunManager: ObservableObject {
         } catch {
             print("Failed to save running data: \(error)")
         }
+    }
+    
+    @MainActor private func handleRunCompletion() {
+        isRunning = false
+        runTracker?.stopRun()
+        runTracker = nil
+        stopSaveTimer()
+        saveRunData()
     }
 }

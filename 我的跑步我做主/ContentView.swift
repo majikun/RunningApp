@@ -7,7 +7,7 @@ struct ContentView: View {
     @State private var selectedPlan: RunPlan?
     @State private var runRecords: [RunRecord] = []  // 添加一个 @State 的 runRecords 变量
 
-    @ObservedObject var runTracker = RunTracker(plan: RunPlan(name: "Example Plan", stages: [])) // Example Plan for testing
+    @ObservedObject var runManager = RunManager.shared
 
     var body: some View {
         NavigationView {
@@ -28,10 +28,10 @@ struct ContentView: View {
                     }
                     .onDelete(perform: deletePlan)  // 支持删除功能
                 }
-
-                if runTracker.isRunning {
-                    NavigationLink(destination: RunDetailView(plan: runTracker.plan, runRecords: $runRecords)) {
-                        Text("进行中的训练：\(runTracker.plan.name)")
+                
+                if let tracker = runManager.runTracker, runManager.isRunning {
+                    NavigationLink(destination: RunDetailView(plan: tracker.plan, runRecords: $runRecords)) {
+                        Text("进行中的训练：\(tracker.plan.name)")
                             .font(.title)
                             .padding()
                             .background(Color.orange)
@@ -52,7 +52,7 @@ struct ContentView: View {
                     }
                     .padding()
                 }
-                
+
                 NavigationLink(destination: RunningRecordListView()) {
                     Text("训练记录")
                         .font(.title)
@@ -62,28 +62,6 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
                 .padding()
-
-                // 添加新计划按钮
-                Button(action: {
-                    showingAddPlanSheet = true
-                }) {
-                    Text("添加新跑步计划")
-                        .font(.title)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .sheet(isPresented: $showingAddPlanSheet, content: {
-                    AddRunPlanView { newPlan in
-                        runPlans.append(newPlan)
-                        do {
-                            try PersistenceManager.shared.saveRunPlan(newPlan)
-                        } catch {
-                            print("Failed to save plan: \(error)")
-                        }
-                    }
-                })
 
                 Spacer()
 
@@ -98,9 +76,9 @@ struct ContentView: View {
                 .padding()
             }
             .onAppear {
-                runPlans = PersistenceManager.shared.fetchAllRunPlans()
-                runTracker.objectWillChange.send()  // 添加这行确保重新绘制视图
+                runPlans = PersistenceManager.shared.fetchAllRunPlans().sorted(by: { $0.name < $1.name })
             }
+
         }
     }
 
@@ -117,4 +95,3 @@ struct ContentView: View {
         }
     }
 }
-

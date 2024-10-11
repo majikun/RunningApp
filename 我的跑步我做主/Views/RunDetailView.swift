@@ -52,9 +52,7 @@ struct RunDetailView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-            }
-
-            if runManager.isRunning {
+            } else if runManager.isRunning {
                 HStack {
                     Button(action: {
                         runManager.pauseRun()
@@ -79,11 +77,27 @@ struct RunDetailView: View {
                     }
                 }
             }
-        }
-        .onChange(of: runManager.isRunning) { _ in
-            if !runManager.isRunning {
-                stopRun()
-            }
+            ScrollView {
+                            VStack(alignment: .leading) {
+                                Text("跑步节奏详情")
+                                    .font(.headline)
+                                    .padding(.top, 20)
+                                ForEach(plan.stages.sorted(by: { $0.index < $1.index }), id: \.id) { stage in
+                                    HStack {
+                                        Text("阶段 \(stage.index + 1)")
+                                            .font(.subheadline)
+                                        Spacer()
+                                        Text(stage.name)
+                                            .font(.body)
+                                        Spacer()
+                                        Text("距离: \(Int(stage.distance)) 米")
+                                            .font(.body)
+                                    }
+                                    .padding(.vertical, 5)
+                                }
+                            }
+                            .padding()
+                        }
         }
         .onAppear {
             if runManager.isRunning, let tracker = runManager.runTracker {
@@ -97,32 +111,35 @@ struct RunDetailView: View {
     }
 
     func stopRun() {
-        runManager.stopRun()
+        guard let tracker = runManager.runTracker else { return }
 
-        if let tracker = runManager.runTracker {
-            let runRecord = RunRecord(
-                date: Date(),
-                totalDistance: tracker.totalDistance,
-                totalDuration: Date().timeIntervalSince(tracker.runStartTime ?? Date()),
-                planName: plan.name,
-                coordinates: tracker.coordinates
-            )
-            runRecords.append(runRecord)
+        // 保存跑步记录的逻辑
+        let runRecord = RunRecord(
+            date: Date(),
+            totalDistance: tracker.totalDistance,
+            totalDuration: Date().timeIntervalSince(tracker.runStartTime ?? Date()),
+            planName: plan.name,
+            coordinates: tracker.coordinates
+        )
+        runRecords.append(runRecord)
 
-            let persistenceRecord = RunningRecord(
-                planName: plan.name,
-                totalDistance: tracker.totalDistance,
-                totalTime: Date().timeIntervalSince(tracker.runStartTime ?? Date()),
-                startTime: tracker.runStartTime ?? Date(),
-                endTime: Date(),
-                coordinates: tracker.coordinates
-            )
+        let persistenceRecord = RunningRecord(
+            planName: plan.name,
+            totalDistance: tracker.totalDistance,
+            totalTime: Date().timeIntervalSince(tracker.runStartTime ?? Date()),
+            startTime: tracker.runStartTime ?? Date(),
+            endTime: Date(),
+            coordinates: tracker.coordinates
+        )
 
-            do {
-                try PersistenceManager.shared.saveRunningRecord(persistenceRecord)
-            } catch {
-                print("Failed to save record: \(error)")
-            }
+        do {
+            try PersistenceManager.shared.saveRunningRecord(persistenceRecord)
+        } catch {
+            print("Failed to save record: \(error)")
         }
+
+        // 最后再停止跑步
+        runManager.stopRun()
     }
+
 }

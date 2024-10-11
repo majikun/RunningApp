@@ -29,7 +29,8 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
     var runStartTime: Date?
     var runEndTime: Date?
     private var timer: Timer?
-    private var activity: Activity<RunningAttributes>? = nil
+    private var activity: Activity<RunningWidgetAttributes>? = nil
+
 
     var currentStage: RunStage? {
         if currentStageIndex < stages.count {
@@ -77,16 +78,15 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
         }
     }
 
-    // LocationManagerDelegate - 处理位置更新
     func didUpdateLocation(_ location: CLLocation) {
-        guard isRunning, !isPaused else { return }  // 确保只有跑步开始后才更新位置
+        guard isRunning, !isPaused else { return }
         
-        coordinates.append(location.coordinate)  // 记录当前位置坐标
+        coordinates.append(location.coordinate)
 
         if let lastLocation = lastLocation {
             let distance = location.distance(from: lastLocation)
-            totalDistance += distance / 1000  // Convert to km
-            currentStageDistance += distance  // 更新当前阶段的里程
+            totalDistance += distance          // 保持米的单位
+            currentStageDistance += distance   // 也是米
 
             updatePace()
             updateLiveActivity()
@@ -129,16 +129,15 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
         stageResults[currentStageIndex].startTime = Date()  // 记录阶段开始时间
         SpeechManager.shared.announceStage(stages[currentStageIndex].name, distance: stages[currentStageIndex].distance)
     }
-
-    // 完成整个跑步
+    
     func completeRun() {
         runEndTime = Date()
-        isCompleted = true  // 新增：通知外部训练完成
+        isCompleted = true  // 触发 @Published 属性的变化
         SpeechManager.shared.announceCompletion(totalDistance: totalDistance)
         
         // 停止位置更新和后台任务
         LocationManager.shared.stopTracking()
-        BackgroundTaskManager.shared.endBackgroundTask()  // 确保停止后台任务
+        BackgroundTaskManager.shared.endBackgroundTask()
     }
 
     // 暂停/恢复跑步
@@ -169,31 +168,49 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
     // 更新配速
     private func updatePace() {
         if totalDistance > 0 {
-            pace = time / totalDistance
+            pace = time / (totalDistance / 1000.0)   // 配速以 **秒/公里** 为单位
         }
     }
-
-    // Live Activity Methods
-    private func startLiveActivity() {
-        let attributes = RunningAttributes(sessionName: planName)
-        let initialContentState = RunningAttributes.ContentState(distance: totalDistance, time: time, pace: pace)
-        do {
-            activity = try Activity<RunningAttributes>.request(attributes: attributes, contentState: initialContentState, pushType: nil)
-        } catch {
-            print("Error starting Live Activity: \(error)")
+    
+    // 开始 Live Activity
+        private func startLiveActivity() {
+            let attributes = RunningWidgetAttributes(sessionName: planName)
+            let initialContentState = RunningWidgetAttributes.ContentState(
+                totalTime: 0,
+                totalDistance: 0,
+                currentStageIndex: currentStageIndex,
+                currentStageDistance: 0
+            )
+            do {
+                activity = try Activity.request(
+                    attributes: attributes,
+                    contentState: initialContentState,
+                    pushType: nil  // 如果不需要远程推送更新，可以设置为 nil
+                )
+            } catch {
+                print("Error starting Live Activity: \(error)")
+            }
         }
-    }
 
-    private func updateLiveActivity() {
-        guard let activity = activity else { return }
-        let updatedContentState = RunningAttributes.ContentState(distance: totalDistance, time: time, pace: pace)
-        Task {
-            await activity.update(using: updatedContentState)
+        // 更新 Live Activity
+        private func updateLiveActivity() {
+            guard let activity = activity else { return }
+            let updatedContentState = RunningWidgetAttributes.ContentState(
+                totalTime: time,
+                totalDistance: totalDistance,
+                currentStageIndex: currentStageIndex,
+                currentStageDistance: currentStageDistance
+            )
+            Task {
+                await activity.update(using: updatedContentState)
+            }
         }
-    }
 
-    private func endLiveActivity() async {
-        await activity?.end(dismissalPolicy: .immediate)
-        activity = nil
-    }
+        // 结束 Live Activity
+        private func endLiveActivity() {
+            Task {
+                await activity?.end(dismissalPolicy: .immediate)
+                activity = nil
+            }
+        }
 }
