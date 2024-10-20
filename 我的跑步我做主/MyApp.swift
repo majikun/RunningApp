@@ -11,7 +11,6 @@ import SwiftData
 struct MyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            RunPlan.self,  // 包含 RunPlan
             RunningRecord.self,  // 确保 RunningRecord 在 schema 中
             RunStageResult.self,
             Item.self  // 你可能还会有其他的模型
@@ -29,7 +28,7 @@ struct MyApp: App {
             ContentView()
                 .onAppear {
                     PersistenceManager.shared.container = sharedModelContainer  // 传递容器给 PersistenceManager
-                    PersistenceManager.shared.initializeDefaultPlansIfNeeded()
+                    CoreDataManager.shared.initializeDefaultPlansIfNeeded()
                 }
         }
         .modelContainer(sharedModelContainer)  // 将 ModelContainer 传递给整个视图层

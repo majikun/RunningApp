@@ -103,7 +103,7 @@ class RunManager: ObservableObject {
     // 创建新的跑步记录
     @MainActor private func createNewRunningRecord(plan: RunPlan) {
         let runningRecord = RunningRecord(
-            planName: plan.name,
+            planName: plan.name!,
             totalDistance: 0.0,
             totalTime: 0.0,
             startTime: Date(),

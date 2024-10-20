@@ -12,10 +12,8 @@
 		300F58292C8AEF2500F1A7F5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58282C8AEF2500F1A7F5 /* Item.swift */; };
 		300F582B2C8AEF2700F1A7F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */; };
 		300F582E2C8AEF2700F1A7F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300F582D2C8AEF2700F1A7F5 /* Preview Assets.xcassets */; };
-		300F58382C8AEF2800F1A7F5 /* _______Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58372C8AEF2800F1A7F5 /* _______Tests.swift */; };
 		300F58422C8AEF2800F1A7F5 /* _______UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58412C8AEF2800F1A7F5 /* _______UITests.swift */; };
 		300F58442C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58432C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift */; };
-		300F58552C8AF1B400F1A7F5 /* RunPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58542C8AF1B400F1A7F5 /* RunPlan.swift */; };
 		300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */; };
 		300F58592C8AF22C00F1A7F5 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */; };
 		304B281E2CB9041900FE65DA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B281D2CB9041800FE65DA /* WidgetKit.framework */; };
@@ -29,7 +27,9 @@
 		304B283C2CB907B500FE65DA /* RunningWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28382CB9060E00FE65DA /* RunningWidgetAttributes.swift */; };
 		304B28412CB90ABB00FE65DA /* RunningWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B283D2CB90A5B00FE65DA /* RunningWidget.swift */; };
 		304B28422CB90AC000FE65DA /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B283F2CB90A6B00FE65DA /* AppIntent.swift */; };
-		304B28442CB92A5C00FE65DA /* AutoPauseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28432CB92A5C00FE65DA /* AutoPauseDetector.swift */; };
+		304B28462CC0163500FE65DA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B28452CC0163500FE65DA /* CoreData.framework */; };
+		304B284D2CC274E200FE65DA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B284C2CC274E200FE65DA /* CoreDataManager.swift */; };
+		304B28522CC2932500FE65DA /* RunPlanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 304B28502CC2932500FE65DA /* RunPlanModel.xcdatamodeld */; };
 		30712FD72C8C069B00E5D69B /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD62C8C069B00E5D69B /* RunningRecord.swift */; };
 		30712FD92C8C06BD00E5D69B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */; };
 		30712FDB2C8C074200E5D69B /* RunningRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */; };
@@ -41,8 +41,13 @@
 		307457F22C8B143C00843C84 /* RunningRecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457F12C8B143C00843C84 /* RunningRecordListView.swift */; };
 		307457F42C8B2F9A00843C84 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457F32C8B2F9A00843C84 /* UserDefaultsManager.swift */; };
 		307457F82C8B48CE00843C84 /* RunRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307457F72C8B48CE00843C84 /* RunRecordDetailView.swift */; };
+		30AE45842CC3694000DCA7F9 /* RunPlan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45802CC3694000DCA7F9 /* RunPlan+CoreDataClass.swift */; };
+		30AE45852CC3694000DCA7F9 /* RunPlan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45812CC3694000DCA7F9 /* RunPlan+CoreDataProperties.swift */; };
+		30AE45862CC3694000DCA7F9 /* RunStage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45822CC3694000DCA7F9 /* RunStage+CoreDataClass.swift */; };
+		30AE45872CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45832CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift */; };
+		30AE45892CC3F3FE00DCA7F9 /* RunPlanStageArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45882CC3F3FE00DCA7F9 /* RunPlanStageArray.swift */; };
+		30AE458B2CC4752700DCA7F9 /* DiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE458A2CC4752700DCA7F9 /* DiagnosticsView.swift */; };
 		30FCB0302C93FDC700258BAF /* AddRunPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB02F2C93FDC700258BAF /* AddRunPlanView.swift */; };
-		30FCB0322C941E4E00258BAF /* RunStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0312C941E4E00258BAF /* RunStage.swift */; };
 		30FCB0342C941F2F00258BAF /* RunStageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0332C941F2F00258BAF /* RunStageResult.swift */; };
 		30FCB0392C9423D500258BAF /* JSONRunPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0382C9423D500258BAF /* JSONRunPlan.swift */; };
 		30FCB03B2C9424B900258BAF /* runplans.json in Resources */ = {isa = PBXBuildFile; fileRef = 30FCB03A2C9424B900258BAF /* runplans.json */; };
@@ -98,11 +103,9 @@
 		300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		300F582D2C8AEF2700F1A7F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		300F58332C8AEF2800F1A7F5 /* 我的跑步我做主Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "我的跑步我做主Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		300F58372C8AEF2800F1A7F5 /* _______Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_______Tests.swift"; sourceTree = "<group>"; };
 		300F583D2C8AEF2800F1A7F5 /* 我的跑步我做主UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "我的跑步我做主UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		300F58412C8AEF2800F1A7F5 /* _______UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_______UITests.swift"; sourceTree = "<group>"; };
 		300F58432C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "_______UITestsLaunchTests.swift"; sourceTree = "<group>"; };
-		300F58542C8AF1B400F1A7F5 /* RunPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlan.swift; sourceTree = "<group>"; };
 		300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTracker.swift; sourceTree = "<group>"; };
 		300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
 		304B281B2CB9041800FE65DA /* RunningWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunningWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +119,9 @@
 		304B28382CB9060E00FE65DA /* RunningWidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningWidgetAttributes.swift; sourceTree = "<group>"; };
 		304B283D2CB90A5B00FE65DA /* RunningWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningWidget.swift; sourceTree = "<group>"; };
 		304B283F2CB90A6B00FE65DA /* AppIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
-		304B28432CB92A5C00FE65DA /* AutoPauseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPauseDetector.swift; sourceTree = "<group>"; };
+		304B28452CC0163500FE65DA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		304B284C2CC274E200FE65DA /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		304B28512CC2932500FE65DA /* RunPlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunPlanModel.xcdatamodel; sourceTree = "<group>"; };
 		30712FD62C8C069B00E5D69B /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
 		30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		30712FDA2C8C074200E5D69B /* RunningRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordViewModel.swift; sourceTree = "<group>"; };
@@ -129,8 +134,13 @@
 		307457F12C8B143C00843C84 /* RunningRecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordListView.swift; sourceTree = "<group>"; };
 		307457F32C8B2F9A00843C84 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		307457F72C8B48CE00843C84 /* RunRecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunRecordDetailView.swift; sourceTree = "<group>"; };
+		30AE45802CC3694000DCA7F9 /* RunPlan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunPlan+CoreDataClass.swift"; sourceTree = "<group>"; };
+		30AE45812CC3694000DCA7F9 /* RunPlan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunPlan+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		30AE45822CC3694000DCA7F9 /* RunStage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunStage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		30AE45832CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunStage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		30AE45882CC3F3FE00DCA7F9 /* RunPlanStageArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlanStageArray.swift; sourceTree = "<group>"; };
+		30AE458A2CC4752700DCA7F9 /* DiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsView.swift; sourceTree = "<group>"; };
 		30FCB02F2C93FDC700258BAF /* AddRunPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunPlanView.swift; sourceTree = "<group>"; };
-		30FCB0312C941E4E00258BAF /* RunStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStage.swift; sourceTree = "<group>"; };
 		30FCB0332C941F2F00258BAF /* RunStageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStageResult.swift; sourceTree = "<group>"; };
 		30FCB0382C9423D500258BAF /* JSONRunPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRunPlan.swift; sourceTree = "<group>"; };
 		30FCB03A2C9424B900258BAF /* runplans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runplans.json; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304B28462CC0163500FE65DA /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +239,6 @@
 		300F58362C8AEF2800F1A7F5 /* 我的跑步我做主Tests */ = {
 			isa = PBXGroup;
 			children = (
-				300F58372C8AEF2800F1A7F5 /* _______Tests.swift */,
 			);
 			path = "我的跑步我做主Tests";
 			sourceTree = "<group>";
@@ -245,11 +255,15 @@
 		300F58502C8AF0E900F1A7F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				300F58542C8AF1B400F1A7F5 /* RunPlan.swift */,
+				30AE45802CC3694000DCA7F9 /* RunPlan+CoreDataClass.swift */,
+				30AE45812CC3694000DCA7F9 /* RunPlan+CoreDataProperties.swift */,
+				30AE45822CC3694000DCA7F9 /* RunStage+CoreDataClass.swift */,
+				30AE45832CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift */,
 				307457EF2C8B141200843C84 /* RunRecord.swift */,
 				30712FD62C8C069B00E5D69B /* RunningRecord.swift */,
-				30FCB0312C941E4E00258BAF /* RunStage.swift */,
 				30FCB0332C941F2F00258BAF /* RunStageResult.swift */,
+				304B28502CC2932500FE65DA /* RunPlanModel.xcdatamodeld */,
+				30AE45882CC3F3FE00DCA7F9 /* RunPlanStageArray.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,7 +285,6 @@
 				30712FDF2C92D7A600E5D69B /* LocationManager.swift */,
 				30712FE12C92D7DC00E5D69B /* BackgroundTaskManager.swift */,
 				30FCB0382C9423D500258BAF /* JSONRunPlan.swift */,
-				304B28432CB92A5C00FE65DA /* AutoPauseDetector.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -287,6 +300,7 @@
 				30FCB03E2C94289300258BAF /* RunPlanListView.swift */,
 				30FCB0402C9428B400258BAF /* RunPlanDetailView.swift */,
 				30FCB0422C9429B500258BAF /* AddRunStageView.swift */,
+				30AE458A2CC4752700DCA7F9 /* DiagnosticsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +308,7 @@
 		304B281C2CB9041800FE65DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				304B28452CC0163500FE65DA /* CoreData.framework */,
 				304B281D2CB9041800FE65DA /* WidgetKit.framework */,
 				304B281F2CB9041900FE65DA /* SwiftUI.framework */,
 			);
@@ -325,6 +340,7 @@
 		30712FD52C8C062000E5D69B /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				304B284C2CC274E200FE65DA /* CoreDataManager.swift */,
 				307457F32C8B2F9A00843C84 /* UserDefaultsManager.swift */,
 				30712FD82C8C06BD00E5D69B /* PersistenceManager.swift */,
 			);
@@ -504,21 +520,26 @@
 				304B28392CB9060E00FE65DA /* RunningWidgetAttributes.swift in Sources */,
 				30712FDB2C8C074200E5D69B /* RunningRecordViewModel.swift in Sources */,
 				300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */,
+				30AE458B2CC4752700DCA7F9 /* DiagnosticsView.swift in Sources */,
 				30712FD92C8C06BD00E5D69B /* PersistenceManager.swift in Sources */,
 				300F58592C8AF22C00F1A7F5 /* SpeechManager.swift in Sources */,
+				30AE45892CC3F3FE00DCA7F9 /* RunPlanStageArray.swift in Sources */,
 				30712FE02C92D7A600E5D69B /* LocationManager.swift in Sources */,
 				30FCB0432C9429B500258BAF /* AddRunStageView.swift in Sources */,
 				300F58272C8AEF2500F1A7F5 /* ContentView.swift in Sources */,
 				300F58292C8AEF2500F1A7F5 /* Item.swift in Sources */,
 				30FCB0412C9428B400258BAF /* RunPlanDetailView.swift in Sources */,
-				304B28442CB92A5C00FE65DA /* AutoPauseDetector.swift in Sources */,
+				304B28522CC2932500FE65DA /* RunPlanModel.xcdatamodeld in Sources */,
 				30712FE22C92D7DC00E5D69B /* BackgroundTaskManager.swift in Sources */,
 				307457EE2C8B085E00843C84 /* RunDetailView.swift in Sources */,
+				30AE45842CC3694000DCA7F9 /* RunPlan+CoreDataClass.swift in Sources */,
+				30AE45852CC3694000DCA7F9 /* RunPlan+CoreDataProperties.swift in Sources */,
+				30AE45862CC3694000DCA7F9 /* RunStage+CoreDataClass.swift in Sources */,
+				30AE45872CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift in Sources */,
 				30712FDD2C8C07C800E5D69B /* MapView.swift in Sources */,
 				307457F82C8B48CE00843C84 /* RunRecordDetailView.swift in Sources */,
 				30FCB0452C95795200258BAF /* RunManager.swift in Sources */,
 				30FCB0302C93FDC700258BAF /* AddRunPlanView.swift in Sources */,
-				300F58552C8AF1B400F1A7F5 /* RunPlan.swift in Sources */,
 				307457F42C8B2F9A00843C84 /* UserDefaultsManager.swift in Sources */,
 				307457F22C8B143C00843C84 /* RunningRecordListView.swift in Sources */,
 				30FCB0342C941F2F00258BAF /* RunStageResult.swift in Sources */,
@@ -526,7 +547,7 @@
 				30FCB0392C9423D500258BAF /* JSONRunPlan.swift in Sources */,
 				307457F02C8B141200843C84 /* RunRecord.swift in Sources */,
 				300F58252C8AEF2500F1A7F5 /* MyApp.swift in Sources */,
-				30FCB0322C941E4E00258BAF /* RunStage.swift in Sources */,
+				304B284D2CC274E200FE65DA /* CoreDataManager.swift in Sources */,
 				30712FD72C8C069B00E5D69B /* RunningRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,7 +556,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				300F58382C8AEF2800F1A7F5 /* _______Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +737,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
+				INFOPLIST_KEY_NSMotionUsageDescription = "我们需要访问您的运动与健身数据，以自动检测您的运动状态，实现自动暂停和恢复跑步功能。";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -752,6 +773,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
+				INFOPLIST_KEY_NSMotionUsageDescription = "我们需要访问您的运动与健身数据，以自动检测您的运动状态，实现自动暂停和恢复跑步功能。";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -946,6 +968,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		304B28502CC2932500FE65DA /* RunPlanModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				304B28512CC2932500FE65DA /* RunPlanModel.xcdatamodel */,
+			);
+			currentVersion = 304B28512CC2932500FE65DA /* RunPlanModel.xcdatamodel */;
+			name = RunPlanModel.xcdatamodeld;
+			path = "/Users/magic/Workspace/IOS-running/我的跑步我做主/我的跑步我做主/Models/RunPlanModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 300F58192C8AEF2500F1A7F5 /* Project object */;
 }

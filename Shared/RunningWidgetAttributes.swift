@@ -18,6 +18,7 @@ struct RunningWidgetAttributes: ActivityAttributes {
         var currentStageName: String      // 当前阶段索引
         var currentStageObject: Double       // 当前阶段目标
         var currentStageDistance: Double  // 当前阶段距离（米）
+        var isPaused: Bool
     }
 
     // 定义静态的活动属性

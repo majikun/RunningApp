@@ -34,8 +34,11 @@ class SpeechManager {
     }
     
     func announce(_ message: String) {
-        // Implementation for announcing the message
-        print("Announcing: \(message)")
+        configureAudioSession()  // 配置音频会话
+        
+        let utterance = AVSpeechUtterance(string: message)
+        utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")  // 设置为中文语音
+        synthesizer.speak(utterance)
     }
 
     // 语音提示阶段

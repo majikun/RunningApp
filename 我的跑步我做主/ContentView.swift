@@ -21,7 +21,7 @@ struct ContentView: View {
                     ForEach($runPlans, id: \.id) { $plan in
                         NavigationLink(destination: RunDetailView(plan: plan, runRecords: $runRecords)) {
                             HStack {
-                                Text(plan.name)
+                                Text(plan.name!)
                             }
                             .font(.headline)
                             .padding(8)
@@ -37,7 +37,7 @@ struct ContentView: View {
 
                 if let tracker = runManager.runTracker, runManager.isRunning {
                     NavigationLink(destination: RunDetailView(plan: tracker.plan, runRecords: $runRecords)) {
-                        Text("进行中的训练：\(tracker.plan.name)")
+                        Text("进行中的训练：\(tracker.plan.name!)")
                             .font(.title2)
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -61,6 +61,7 @@ struct ContentView: View {
                     .padding(.horizontal)
                 }
 
+                
                 NavigationLink(destination: RunningRecordListView()) {
                     Text("训练记录")
                         .font(.title2)
@@ -84,10 +85,23 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
                 .padding(.horizontal)
+                
+                NavigationLink(destination: DiagnosticsView()) {
+                    Text("诊断")
+                        .font(.title2)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.purple)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .padding(.horizontal)
+
             }
             .padding()
             .onAppear {
-                runPlans = PersistenceManager.shared.fetchAllRunPlans().sorted(by: { $0.name < $1.name })
+                runPlans = CoreDataManager.shared.fetchAllRunPlans().sorted(by: { $0.name! < $1.name! })
+                print(runPlans)
             }
         }
     }
@@ -97,7 +111,7 @@ struct ContentView: View {
         for index in offsets {
             let plan = runPlans[index]
             do {
-                try PersistenceManager.shared.deleteRunPlan(plan)
+                try CoreDataManager.shared.deleteRunPlan(plan)
                 runPlans.remove(at: index)
             } catch {
                 print("Failed to delete plan: \(error)")

@@ -8,50 +8,57 @@ struct LockScreenLiveActivityView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text(context.attributes.sessionName)
                 .font(.headline)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
                 .padding(.bottom, 4)
-
-            HStack(spacing: 16) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(formatTime(context.state.totalTime))
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                    HStack {
-                        Image(systemName: "clock.fill")
-                            .foregroundColor(.yellow)
-                        Text("总时长")
-                            .font(.subheadline)
-                            .foregroundColor(.black)
+            
+            if context.state.isPaused {
+                Text("已暂停")
+                    .font(.title)
+                    .foregroundColor(.red)
+            } else {
+                HStack(spacing: 16) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(formatTime(context.state.totalTime))
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                        HStack {
+                            Image(systemName: "clock.fill")
+                                .foregroundColor(.yellow)
+                            Text("总时长")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                     }
-                }
-                Spacer()
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("\(Int(context.state.totalDistance)) 米")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                    HStack {
-                        Image(systemName: "figure.walk")
-                            .foregroundColor(.green)
-                        Text("总距离")
-                            .font(.subheadline)
-                            .foregroundColor(.black)
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("\(Int(context.state.totalDistance)) 米")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                        HStack {
+                            Image(systemName: "figure.walk")
+                                .foregroundColor(.green)
+                            Text("总距离")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                     }
-                }
-                Spacer()
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("\(Int(context.state.currentStageDistance)) 米")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                    HStack {
-                        Image(systemName: "ruler.fill")
-                            .foregroundColor(.purple)
-                        Text(context.state.currentStageName + "\(Int(context.state.currentStageObject)) 米")
-                            .font(.subheadline)
-                            .foregroundColor(.black)
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("\(Int(context.state.currentStageDistance)) 米")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                        HStack {
+                            Image(systemName: "ruler.fill")
+                                .foregroundColor(.purple)
+                            Text(context.state.currentStageName + "\(Int(context.state.currentStageObject)) 米")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                     }
+                    
                 }
             }
         }

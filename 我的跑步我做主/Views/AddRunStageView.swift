@@ -30,7 +30,11 @@ struct AddRunStageView: View {
             .navigationBarItems(leading: Button("取消") {
                 dismiss()
             }, trailing: Button("添加") {
-                let newStage = RunStage(name: stageName, distance: stageDistance, index: nextIndex)
+                let newStage = RunStage(context: CoreDataManager.shared.context)
+                newStage.id = UUID()
+                newStage.name = stageName
+                newStage.distance = stageDistance
+                newStage.index = Int64(nextIndex)
                 onAdd(newStage)
                 dismiss()
             })

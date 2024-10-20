@@ -17,7 +17,7 @@ struct RunPlanListView: View {
             List {
                 ForEach(runPlans, id: \.self) { plan in
                     NavigationLink(destination: RunPlanDetailView(plan: plan)) {
-                        Text(plan.name)
+                        Text(plan.name!)
                     }
                 }
                 .onDelete(perform: deleteRunPlan)
@@ -29,34 +29,32 @@ struct RunPlanListView: View {
                 Image(systemName: "plus")
             })
             .sheet(isPresented: $showAddPlanSheet) {
-                AddRunPlanView { newPlan in
-                    runPlans.append(newPlan)
-                    // Save new plan to persistence
+                AddRunPlanView { newPlanName, newStages in
                     do {
-                                try PersistenceManager.shared.saveRunPlan(newPlan)
-                            } catch {
-                                print("Failed to save the plan: \(error)")
-                            }
+                        let newPlan = try CoreDataManager.shared.createRunPlan(name: newPlanName, stages: newStages)
+                        runPlans.append(newPlan)
+                        print("Successfully saved new plan: \(newPlanName)")
+                    } catch {
+                        print("Failed to save the plan: \(error)")
+                    }
                 }
             }
         }
         .onAppear {
-            runPlans = PersistenceManager.shared.fetchAllRunPlans().sorted(by: { $0.name < $1.name })
+            runPlans = CoreDataManager.shared.fetchAllRunPlans(sorted: true)
         }
     }
     
     func deleteRunPlan(at offsets: IndexSet) {
         offsets.forEach { index in
             let plan = runPlans[index]
-           
-            Task {
-                do {
-                    try await PersistenceManager.shared.deleteRunPlan(plan)
-                } catch {
-                    print("Failed to delete the plan: \(error)")
-                }
+            do {
+                try CoreDataManager.shared.deleteRunPlan(plan)
+            } catch {
+                print("Failed to delete the plan: \(error)")
             }
         }
         runPlans.remove(atOffsets: offsets)
     }
+
 }

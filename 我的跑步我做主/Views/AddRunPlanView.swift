@@ -6,20 +6,19 @@
 //
 import SwiftUI
 
+
 struct AddRunPlanView: View {
     @State private var name: String = ""
     @State private var stages: [RunStage] = []
     
-    var onAdd: (RunPlan) -> Void
+    var onAdd: (String, [RunStage]) -> Void
     
     var body: some View {
         NavigationView {
             Form {
                 TextField("Plan Name", text: $name)
-                
                 Button("Add Plan") {
-                    let newPlan = RunPlan(name: name, stages: stages)
-                    onAdd(newPlan)
+                    onAdd(name, stages)
                 }
             }
             .navigationTitle("Add New Plan")

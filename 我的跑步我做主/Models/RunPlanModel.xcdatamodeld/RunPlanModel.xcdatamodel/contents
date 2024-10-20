@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="RunPlan" representedClassName="RunPlan" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="stages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RunStage" inverseName="plan" inverseEntity="RunStage"/>
+    </entity>
+    <entity name="RunStage" representedClassName="RunStage" syncable="YES">
+        <attribute name="distance" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="index" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RunPlan" inverseName="stages" inverseEntity="RunPlan"/>
+    </entity>
+</model>

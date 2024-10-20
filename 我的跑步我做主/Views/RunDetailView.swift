@@ -18,7 +18,7 @@ struct RunDetailView: View {
                     .padding()
 
                 if let currentStage = runManager.runTracker?.currentStage {
-                    Text("\(currentStage.name): \(Int(currentStage.distance)) 米")
+                    Text("\(currentStage.name!): \(Int(currentStage.distance)) 米")
                         .font(.title2)
                         .padding()
                 }
@@ -27,7 +27,7 @@ struct RunDetailView: View {
                     .font(.title3)
                     .padding()
             } else {
-                Text(plan.name)
+                Text(plan.name!)
                     .font(.largeTitle)
                     .padding()
                 Text("准备开始训练...")
@@ -76,12 +76,12 @@ struct RunDetailView: View {
                     Text("跑步节奏详情")
                         .font(.headline)
                         .padding(.top, 20)
-                    ForEach(plan.stages.sorted(by: { $0.index < $1.index }), id: \.id) { stage in
+                    ForEach(plan.stagesArray, id: \.id) { stage in
                         HStack {
                             Text("阶段 \(stage.index + 1)")
                                 .font(.subheadline)
                             Spacer()
-                            Text(stage.name)
+                            Text(stage.name!)
                                 .font(.body)
                             Spacer()
                             Text("距离: \(Int(stage.distance)) 米")
@@ -112,13 +112,13 @@ struct RunDetailView: View {
             date: Date(),
             totalDistance: tracker.totalDistance,
             totalDuration: Date().timeIntervalSince(tracker.runStartTime ?? Date()),
-            planName: plan.name,
+            planName: plan.name!,
             coordinates: tracker.coordinates
         )
         runRecords.append(runRecord)
 
         let persistenceRecord = RunningRecord(
-            planName: plan.name,
+            planName: plan.name!,
             totalDistance: tracker.totalDistance,
             totalTime: Date().timeIntervalSince(tracker.runStartTime ?? Date()),
             startTime: tracker.runStartTime ?? Date(),
