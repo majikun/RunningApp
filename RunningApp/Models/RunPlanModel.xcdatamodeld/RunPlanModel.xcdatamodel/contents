@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="RunningRecord" representedClassName="RunningRecord" syncable="YES">
+        <attribute name="coordinates" optional="YES" attributeType="Transformable" valueTransformerName="StringArrayTransformer"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="planName" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="totalDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="stages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RunStageResult" inverseName="record" inverseEntity="RunStageResult"/>
+    </entity>
+    <entity name="RunPlan" representedClassName="RunPlan" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="stages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RunStage" inverseName="plan" inverseEntity="RunStage"/>
+    </entity>
+    <entity name="RunStage" representedClassName="RunStage" syncable="YES">
+        <attribute name="distance" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="index" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RunPlan" inverseName="stages" inverseEntity="RunPlan"/>
+    </entity>
+    <entity name="RunStageResult" representedClassName="RunStageResult" syncable="YES">
+        <attribute name="actualDistance" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="index" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="plannedDistance" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="stageName" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RunningRecord" inverseName="stages" inverseEntity="RunningRecord"/>
+    </entity>
+</model>
