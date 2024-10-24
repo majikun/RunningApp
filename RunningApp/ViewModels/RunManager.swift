@@ -108,7 +108,7 @@ class RunManager: ObservableObject {
 
         let runningRecord = RunningRecord(context: context)
         runningRecord.id = UUID()
-        runningRecord.planName = plan.name ?? "未知计划"
+        runningRecord.planName = plan.name ?? ""
         runningRecord.totalDistance = 0.0
         runningRecord.totalTime = 0.0
         runningRecord.startTime = Date()

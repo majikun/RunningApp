@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  RunningApp
+
+  Created by Jake Ma on 10/24/24.
+  
+*/
+/* English - General Information */
+"my_running_my_choice" = "My Running, My Choice";
+"continue_training" = "Continue Training: %@";
+"unknown_plan" = "Unknown Plan";
+"total_stages" = "Total Stages: %d";
+"start" = "Start";
+"history" = "History";
+"manage" = "Manage";
+"diagnostics" = "Diagnostics";
+"about" = "About";
+"github_repository" = "GitHub Repository";
+"about_this_app" = "About This App";
+"about_description" = "This app helps you manage running plans and track your progress effectively. Inspired by the concept of Fartlek running, which integrates interval training to improve your health level.";
+
+/* English - Training States */
+"active_training" = "Active Training";
+"no_active_training" = "No Active Training";
+"training_in_progress" = "Training in Progress...";
+"another_training_in_progress" = "Another training is in progress";
+"run_paused" = "Run Paused";
+"run_resumed" = "Run Resumed";
+
+/* English - Stage Information */
+"stage_progress" = "%d/%d Stage";
+"stage_progress_title" = "Stage Progress";
+"stage_index" = "%d:";
+"unknown_stage" = "Unknown Stage";
+"stage_distance_with_value" = "%d meters";
+"current_stage_distance_label" = "Current Stage Distance: %d meters";
+"current_stage" = "%@ %d meters";
+"stage_name_with_value" = "Stage Name: %@";
+"planned_distance" = "Planned Distance: %d meters";
+"actual_distance" = "Actual Distance: %d meters";
+"time_taken" = "Time Taken: %d seconds";
+
+/* English - Plan Information */
+"plan_name" = "Plan Name";
+"plan_name_with_value" = "Plan Name: %@";
+"manage_run_plans" = "Manage Run Plans";
+"duplicate_plan_name" = "Plan Name already exists, please change the name.";
+"add_run_plan" = "Add Run Plan";
+"edit_run_plan" = "Edit Run Plan";
+"default_plan_name" = "Default Plan Name";
+"plan_details" = "Plan Details";
+"plan" = "Plan: %@";
+
+/* English - Distance and Time */
+"total_distance_label" = "Total Distance: %d meters";
+"total_distance" = "Total Distance";
+"total_time" = "Total Time: %d seconds";
+"start_time" = "Start Time: %@";
+"end_time" = "End Time: %@";
+"distance" = "Distance: %d meters";
+"duration" = "Duration: %d seconds";
+
+/* English - Actions and Alerts */
+"start_running_button_pressed" = "Start Running button pressed";
+"start_running" = "Start Running";
+"view_current_training" = "View Current Training";
+"add_stage" = "Add Stage";
+"copied_to_clipboard" = "Copied to Clipboard";
+"share_failed" = "Share Failed";
+"paste_and_identify" = "Paste and Identify";
+"parse_failed" = "Parse Failed";
+"cannot_parse_text" = "Cannot parse the pasted text, please check your input.";
+"cancel" = "Cancel";
+"ok" = "OK";
+"add" = "Add";
+
+/* English - Stage Addition */
+"add_new_stage" = "Add New Stage";
+"stage_details" = "Stage Details";
+"stage_number" = "Stage %d: %@";
+"stage_distance" = "Stage Distance (meters)";
+
+/* English - Announcements */
+"announce_stage" = "Start %@ %d meters";
+"announce_completion" = "Congratulations on completing your training, covering a total of %d meters";

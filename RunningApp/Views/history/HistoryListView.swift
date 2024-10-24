@@ -20,16 +20,16 @@ struct HistoryListView: View {
             ForEach(runningRecords, id: \.objectID) { record in
                 NavigationLink(destination: RunningRecordDetailView(record: record)) {
                     VStack(alignment: .leading) {
-                        Text("计划：\(record.planName ?? "未知计划")")
-                        Text("日期：\(formattedDate(record.startTime))")
-                        Text("距离：\(Int(record.totalDistance)) 米")
-                        Text("用时：\(Int(record.totalTime)) 秒")
+                        Text(String(format: NSLocalizedString("plan", comment: "Plan: %@"), record.planName ?? NSLocalizedString("unknown_plan", comment: "")))
+                        Text(String(format: NSLocalizedString("date", comment: "Date: %@"), formattedDate(record.startTime)))
+                        Text(String(format: NSLocalizedString("distance", comment: "Distance: %d meters"), Int(record.totalDistance)))
+                        Text(String(format: NSLocalizedString("duration", comment: "Duration: %d seconds"), Int(record.totalTime)))
                     }
                 }
             }
             .onDelete(perform: deleteRecords)
         }
-        .navigationTitle("历史记录")
+        .navigationTitle(NSLocalizedString("history_records", comment: "History Records"))
     }
 
     private func deleteRecords(at offsets: IndexSet) {

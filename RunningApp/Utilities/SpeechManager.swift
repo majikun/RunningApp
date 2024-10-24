@@ -4,7 +4,6 @@
 //
 //  Created by Jake Ma on 9/6/24.
 //
-
 import Foundation
 import AVFoundation
 
@@ -37,7 +36,7 @@ class SpeechManager {
         configureAudioSession()  // 配置音频会话
         
         let utterance = AVSpeechUtterance(string: message)
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")  // 设置为中文语音
+        utterance.voice = AVSpeechSynthesisVoice(language: Locale.current.languageCode == "zh" ? "zh-CN" : "en-US")
         synthesizer.speak(utterance)
     }
 
@@ -45,9 +44,9 @@ class SpeechManager {
     func announceStage(_ stage: String, distance: Double) {
         configureAudioSession()  // 配置音频会话
         
-        let message = "开始\(stage)\(Int(distance))米"
+        let message = String(format: NSLocalizedString("announce_stage", comment: "Start %@ %d meters"), stage, Int(distance))
         let utterance = AVSpeechUtterance(string: message)
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")  // 设置为中文语音
+        utterance.voice = AVSpeechSynthesisVoice(language: Locale.current.languageCode == "zh" ? "zh-CN" : "en-US")
         synthesizer.speak(utterance)
     }
     
@@ -55,9 +54,9 @@ class SpeechManager {
     func announceCompletion(totalDistance: Double) {
         configureAudioSession()  // 配置音频会话
         
-        let message = "恭喜你完成本次训练，总共锻炼\(Int(totalDistance))米"
+        let message = String(format: NSLocalizedString("announce_completion", comment: "Congratulations on completing your training, covering a total of %d meters"), Int(totalDistance))
         let utterance = AVSpeechUtterance(string: message)
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")  // 设置为中文语音
+        utterance.voice = AVSpeechSynthesisVoice(language: Locale.current.languageCode == "zh" ? "zh-CN" : "en-US")
         synthesizer.speak(utterance)
     }
     

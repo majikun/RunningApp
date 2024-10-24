@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  RunningApp
+
+  Created by Jake Ma on 10/24/24.
+  
+*/
+/* Chinese - General Information */
+"my_running_my_choice" = "我的跑步我做主";
+"continue_training" = "继续训练：%@";
+"unknown_plan" = "未知计划";
+"total_stages" = "总阶段数：%d";
+"start" = "开始";
+"history" = "历史";
+"manage" = "管理";
+"diagnostics" = "诊断";
+"about" = "关于";
+"github_repository" = "GitHub 仓库";
+"about_this_app" = "关于此应用";
+"about_description" = "此应用帮助您管理跑步计划并有效跟踪您的进度。灵感来自法特莱克跑步概念，它结合了间歇训练来提高您的健康水平。";
+
+/* Chinese - Training States */
+"active_training" = "进行中的训练";
+"no_active_training" = "没有进行中的训练";
+"training_in_progress" = "正在进行中...";
+"another_training_in_progress" = "已有进行中的训练";
+"run_paused" = "运动已暂停";
+"run_resumed" = "运动已恢复";
+
+/* Chinese - Stage Information */
+"stage_progress" = "%d/%d 阶段";
+"stage_progress_title" = "阶段进度";
+"stage_index" = "%d:";
+"unknown_stage" = "未知阶段";
+"stage_distance_with_value" = "%d 米";
+"current_stage_distance_label" = "当前阶段距离：%d 米";
+"current_stage" = "%@ %d 米";
+"stage_name_with_value" = "阶段名称：%@";
+"planned_distance" = "计划距离：%d 米";
+"actual_distance" = "实际距离：%d 米";
+"time_taken" = "时间花费：%d 秒";
+
+/* Chinese - Plan Information */
+"plan_name" = "计划名称";
+"plan_name_with_value" = "计划名称：%@";
+"manage_run_plans" = "管理跑步计划";
+"duplicate_plan_name" = "计划名称已存在，请修改名称。";
+"add_run_plan" = "添加跑步计划";
+"edit_run_plan" = "编辑跑步计划";
+"default_plan_name" = "默认计划名称";
+"plan_details" = "计划详情";
+"plan" = "计划：%@";
+
+/* Chinese - Distance and Time */
+"total_distance_label" = "总距离：%d 米";
+"total_distance" = "总距离";
+"total_time" = "总时间：%d 秒";
+"start_time" = "开始时间：%@";
+"end_time" = "结束时间：%@";
+"distance" = "距离：%d 米";
+"duration" = "用时：%d 秒";
+
+/* Chinese - Actions and Alerts */
+"start_running_button_pressed" = "点击开始跑步按钮";
+"start_running" = "开始跑步";
+"view_current_training" = "查看进行中的训练";
+"add_stage" = "添加阶段";
+"copied_to_clipboard" = "已复制到剪贴板";
+"share_failed" = "分享失败";
+"paste_and_identify" = "粘贴并识别";
+"parse_failed" = "解析失败";
+"cannot_parse_text" = "无法解析粘贴的文本，请检查输入内容。";
+"cancel" = "取消";
+"ok" = "确定";
+"add" = "添加";
+
+/* Chinese - Stage Addition */
+"add_new_stage" = "添加新阶段";
+"stage_details" = "阶段详情";
+"stage_number" = "阶段 %d: %@";
+"stage_distance" = "阶段距离（米）";
+
+/* Chinese - Announcements */
+"announce_stage" = "开始%@%d米";
+"announce_completion" = "恭喜你完成本次训练，总共锻炼%d米";

@@ -17,12 +17,12 @@ struct ManageRunPlansView: View {
                 List {
                     ForEach(runPlans, id: \.objectID) { runPlan in
                         NavigationLink(destination: EditRunPlanView(runPlan: runPlan)) {
-                            Text(runPlan.name ?? "未知计划")
+                            Text(runPlan.name ?? NSLocalizedString("unknown_plan", comment: "Unknown Plan"))
                         }
                     }
                     .onDelete(perform: deleteRunPlan)
                 }
-                .navigationTitle("管理跑步计划")
+                .navigationTitle(NSLocalizedString("manage_run_plans", comment: "Manage Run Plans"))
                 .navigationBarItems(trailing: Button(action: {
                     showAddPlanSheet.toggle()
                 }) {
@@ -44,7 +44,6 @@ struct ManageRunPlansView: View {
     }
 }
 
-
 struct EditRunPlanView: View {
     @ObservedObject var runPlan: RunPlan
     @State private var showAddStageSheet = false
@@ -53,7 +52,7 @@ struct EditRunPlanView: View {
     
     var body: some View {
         VStack {
-            TextField("计划名称", text: Binding(get: { runPlan.name ?? "" }, set: { newValue in
+            TextField(NSLocalizedString("plan_name", comment: "Plan Name"), text: Binding(get: { runPlan.name ?? "" }, set: { newValue in
                 runPlan.name = newValue
                 CoreDataManager.shared.saveContext()
             }))
@@ -65,21 +64,21 @@ struct EditRunPlanView: View {
                 }
             }
             .alert(isPresented: $isDuplicateName) {
-                Alert(title: Text("计划名称已存在，请修改名称。"), dismissButton: .default(Text("确定")))
+                Alert(title: Text(NSLocalizedString("duplicate_plan_name", comment: "Plan name already exists, please change it.")), dismissButton: .default(Text(NSLocalizedString("ok", comment: "OK"))))
             }
             .foregroundColor(isDuplicateName ? .red : .primary)
             
             List {
                 ForEach(runPlan.stagesArray, id: \.objectID) { stage in
                     HStack {
-                        TextField("阶段名称", text: Binding(
+                        TextField(NSLocalizedString("stage_name", comment: "Stage Name"), text: Binding(
                             get: { stage.name ?? "" },
                             set: { newValue in
                                 stage.name = newValue
                                 CoreDataManager.shared.saveContext()
                             }
                         ))
-                        TextField("距离", value: Binding(
+                        TextField(NSLocalizedString("distance", comment: "Distance"), value: Binding(
                             get: { stage.distance },
                             set: { newValue in
                                 stage.distance = newValue
@@ -91,7 +90,7 @@ struct EditRunPlanView: View {
                 .onDelete(perform: deleteStage)
             }
             
-            Button("添加新阶段") {
+            Button(NSLocalizedString("add_new_stage", comment: "Add New Stage")) {
                 showAddStageSheet.toggle()
             }
             .sheet(isPresented: $showAddStageSheet) {
@@ -121,10 +120,10 @@ struct EditRunPlanView: View {
                     .padding()
             }
             .alert(isPresented: $showingCopiedAlert) {
-                Alert(title: Text("已复制到剪贴板"), message: nil, dismissButton: .default(Text("确定")))
+                Alert(title: Text(NSLocalizedString("copied_to_clipboard", comment: "Copied to Clipboard")), message: nil, dismissButton: .default(Text(NSLocalizedString("ok", comment: "OK"))))
             }
         }
-        .navigationTitle("编辑跑步计划")
+        .navigationTitle(NSLocalizedString("edit_run_plan", comment: "Edit Run Plan"))
     }
     
     private func deleteStage(at offsets: IndexSet) {
@@ -143,7 +142,7 @@ struct EditRunPlanView: View {
         
         guard let jsonData = try? JSONEncoder().encode(sharedPlan),
               let compressedData = compress(data: jsonData) else {
-            print("分享失败")
+            print(NSLocalizedString("share_failed", comment: "Share Failed"))
             return
         }
         let base64String = compressedData.base64EncodedString()
@@ -181,22 +180,22 @@ struct AddRunPlanView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("计划名称")) {
-                    TextField("名称", text: $planName)
+                Section(header: Text(NSLocalizedString("plan_name", comment: "Plan Name"))) {
+                    TextField(NSLocalizedString("plan_name", comment: "Name"), text: $planName)
                         .onChange(of: planName) { newName in
                             isDuplicateName = CoreDataManager.shared.fetchAllRunPlans().contains { $0.name == newName }
                         }
                     if isDuplicateName {
-                        Text("计划名称已存在，请修改名称。")
+                        Text(NSLocalizedString("duplicate_plan_name", comment: "Plan name already exists, please change it."))
                             .foregroundColor(.red)
                     }
                 }
                 
-                Section(header: Text("粘贴并识别")) {
+                Section(header: Text(NSLocalizedString("paste_and_identify", comment: "Paste and Identify"))) {
                     TextEditor(text: $pastedText)
                         .frame(minHeight: 100)
                     
-                    Button("粘贴并识别") {
+                    Button(NSLocalizedString("paste_and_identify", comment: "Paste and Identify")) {
                         if let clipboardText = UIPasteboard.general.string {
                             pastedText = clipboardText
                             if pastedText.isEmpty || !isValidPlan(pastedText) {
@@ -207,19 +206,19 @@ struct AddRunPlanView: View {
                         }
                     }
                     .alert(isPresented: $showingParseErrorAlert) {
-                        Alert(title: Text("解析失败"), message: Text("无法解析粘贴的文本，请检查输入内容。"), dismissButton: .default(Text("确定")))
+                        Alert(title: Text(NSLocalizedString("parse_failed", comment: "Parse Failed")), message: Text(NSLocalizedString("cannot_parse_text", comment: "Cannot parse pasted text, please check the input.")), dismissButton: .default(Text(NSLocalizedString("ok", comment: "OK"))))
                     }
                 }
                 
-                Section(header: Text("阶段")) {
+                Section(header: Text(NSLocalizedString("stage_name", comment: "Stages"))) {
                     List {
-                        ForEach(stages, id: \ .self) { stage in
+                        ForEach(stages, id: \.self) { stage in
                             HStack {
-                                TextField("阶段名称", text: Binding(
+                                TextField(NSLocalizedString("stage_name", comment: "Stage Name"), text: Binding(
                                     get: { stage.name ?? "" },
                                     set: { stage.name = $0 }
                                 ))
-                                TextField("距离", value: Binding(
+                                TextField(NSLocalizedString("distance", comment: "Distance"), value: Binding(
                                     get: { stage.distance },
                                     set: { stage.distance = $0 }
                                 ), formatter: NumberFormatter())
@@ -227,19 +226,19 @@ struct AddRunPlanView: View {
                         }
                         .onDelete(perform: deleteStage)
                     }
-                    Button("添加阶段") {
+                    Button(NSLocalizedString("add_stage", comment: "Add Stage")) {
                         let newStage = RunStage(context: CoreDataManager.shared.context)
                         newStage.id = UUID()
-                        newStage.name = "新阶段"
+                        newStage.name = NSLocalizedString("add_new_stage", comment: "New Stage")
                         newStage.distance = 0
                         stages.append(newStage)
                     }
                 }
             }
-            .navigationTitle("添加跑步计划")
-            .navigationBarItems(leading: Button("取消") {
+            .navigationTitle(NSLocalizedString("add_run_plan", comment: "Add Run Plan"))
+            .navigationBarItems(leading: Button(NSLocalizedString("cancel", comment: "Cancel")) {
                 dismiss()
-            }, trailing: Button("添加") {
+            }, trailing: Button(NSLocalizedString("add", comment: "Add")) {
                 if !isDuplicateName {
                     let newPlan = RunPlan(context: context)
                     newPlan.id = UUID()
@@ -264,7 +263,7 @@ struct AddRunPlanView: View {
         guard let decodedData = Data(base64Encoded: pastedText),
               let decompressedData = decompress(data: decodedData),
               let sharedPlan = try? JSONDecoder().decode(SharedRunPlan.self, from: decompressedData) else {
-            print("解析失败")
+            print(NSLocalizedString("parse_failed", comment: "Parse Failed"))
             showingParseErrorAlert = true
             return
         }
@@ -319,19 +318,19 @@ struct AddRunStageView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("阶段名称")) {
-                    TextField("名称", text: $stageName)
+                Section(header: Text(NSLocalizedString("stage_name", comment: "Stage Name"))) {
+                    TextField(NSLocalizedString("plan_name", comment: "Name"), text: $stageName)
                 }
                 
-                Section(header: Text("阶段距离（米）")) {
-                    TextField("距离", value: $stageDistance, formatter: NumberFormatter())
+                Section(header: Text(NSLocalizedString("stage_distance", comment: "Stage Distance (meters)"))) {
+                    TextField(NSLocalizedString("distance", comment: "Distance"), value: $stageDistance, formatter: NumberFormatter())
                         .keyboardType(.decimalPad)
                 }
             }
-            .navigationTitle("添加新阶段")
-            .navigationBarItems(leading: Button("取消") {
+            .navigationTitle(NSLocalizedString("add_new_stage", comment: "Add New Stage"))
+            .navigationBarItems(leading: Button(NSLocalizedString("cancel", comment: "Cancel")) {
                 dismiss()
-            }, trailing: Button("添加") {
+            }, trailing: Button(NSLocalizedString("add", comment: "Add")) {
                 let newStage = RunStage(context: CoreDataManager.shared.context)
                 newStage.id = UUID()
                 newStage.name = stageName

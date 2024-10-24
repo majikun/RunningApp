@@ -1,14 +1,6 @@
-//
-//  RunTracker.swift
-//  我的跑步我做主
-//
-//  Created by Jake Ma on 9/6/24.
-//
-//
 import Foundation
 import CoreLocation
 import ActivityKit
-import CoreLocation
 import CoreData
 import MapKit
 
@@ -55,14 +47,14 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
 
     init(plan: RunPlan) {
         self.stages = plan.stagesArray
-        self.planName = plan.name ?? "默认计划名称"
+        self.planName = plan.name ?? NSLocalizedString("default_plan_name", comment: "Default Plan Name")
         self.plan = plan
         super.init()
 
         // 初始化 stageResults，以匹配 stages 的数量
         for (index, stage) in stages.enumerated() {
             let stageResult = StageResult(
-                stageName: stage.name ?? "默认阶段名称",
+                stageName: stage.name ?? NSLocalizedString("default_stage_name", comment: "Default Stage Name"),
                 plannedDistance: stage.distance,
                 index: Int64(index)
             )
@@ -143,7 +135,7 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
     // 开始下一个阶段
     func startNextStage() {
         currentStageDistance = 0.0
-        currentStageName = stages[currentStageIndex].name ?? "默认阶段名称"
+        currentStageName = stages[currentStageIndex].name ?? NSLocalizedString("default_stage_name", comment: "Default Stage Name")
         currentStageObject = stages[currentStageIndex].distance
         lastLocation = nil  // 确保从 0 重新计数
 
@@ -202,13 +194,13 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
     private func pauseRun() {
         LocationManager.shared.stopTracking()
         updateLiveActivity()  // 更新 Live Activity
-        SpeechManager.shared.announce("运动已暂停")
+        SpeechManager.shared.announce(NSLocalizedString("run_paused", comment: "Run Paused"))
     }
 
     private func resumeRun() {
         LocationManager.shared.startTracking()
         updateLiveActivity()  // 更新 Live Activity
-        SpeechManager.shared.announce("运动已恢复")
+        SpeechManager.shared.announce(NSLocalizedString("run_resumed", comment: "Run Resumed"))
     }
     
     private func startTimer() {
@@ -293,7 +285,7 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
         runningRecord.totalTime = time
         runningRecord.startTime = runStartTime
         runningRecord.endTime = runEndTime
-        runningRecord.coordinates = coordinates.map { "\($0.latitude),\($0.longitude)" } 
+        runningRecord.coordinates = coordinates.map { "\($0.latitude),\($0.longitude)" }
 
         // 将 stageResults 转换为 RunStageResult，并添加到 runningRecord
         for stageResultData in stageResults {
@@ -318,4 +310,3 @@ class RunTracker: NSObject, CLLocationManagerDelegate, ObservableObject, Locatio
         }
     }
 }
-

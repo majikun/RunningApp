@@ -7,20 +7,20 @@ struct PlanDetailView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(plan.name ?? "未知计划")
+            Text(plan.name ?? NSLocalizedString("unknown_plan", comment: "Unknown Plan"))
                 .font(.largeTitle)
                 .padding()
 
-            Text("阶段详情")
+            Text(NSLocalizedString("stage_details", comment: "Stage Details"))
                 .font(.headline)
                 .padding(.top)
 
             List {
                 ForEach(plan.stagesArray, id: \.objectID) { stage in
                     HStack {
-                        Text("阶段 \(stage.index + 1): \(stage.name ?? "未知阶段")")
+                        Text(String(format: NSLocalizedString("stage_number", comment: "Stage %d: %@"), stage.index + 1, stage.name ?? NSLocalizedString("unknown_stage", comment: "Unknown Stage")))
                         Spacer()
-                        Text("距离: \(Int(stage.distance)) 米")
+                        Text(String(format: NSLocalizedString("stage_distance_label", comment: "Distance: %d meters"), Int(stage.distance)))
                     }
                 }
             }
@@ -28,7 +28,7 @@ struct PlanDetailView: View {
             Spacer()
 
             if let tracker = runManager.runTracker, runManager.isRunning, tracker.plan.id == plan.id {
-                Text("正在进行中...")
+                Text(NSLocalizedString("training_in_progress", comment: "Training in Progress..."))
                     .font(.title2)
                     .foregroundColor(.green)
                     .padding()
@@ -36,7 +36,7 @@ struct PlanDetailView: View {
                 Button(action: {
                     showRunDetail = true
                 }) {
-                    Text("查看进行中的训练")
+                    Text(NSLocalizedString("view_current_training", comment: "View Current Training"))
                         .font(.title2)
                         .padding()
                         .background(Color.orange)
@@ -45,7 +45,7 @@ struct PlanDetailView: View {
                 }
                 .padding()
             } else if runManager.runTracker != nil && runManager.isRunning {
-                Text("已有进行中的训练")
+                Text(NSLocalizedString("another_training_in_progress", comment: "Another training is in progress"))
                     .font(.title2)
                     .foregroundColor(.red)
                     .padding()
@@ -53,7 +53,7 @@ struct PlanDetailView: View {
                 Button(action: {
                     showRunDetail = true
                 }) {
-                    Text("查看进行中的训练")
+                    Text(NSLocalizedString("view_current_training", comment: "View Current Training"))
                         .font(.title2)
                         .padding()
                         .background(Color.orange)
@@ -63,11 +63,11 @@ struct PlanDetailView: View {
                 .padding()
             } else {
                 Button(action: {
-                    print("点击开始跑步按钮")
+                    print(NSLocalizedString("start_running_button_pressed", comment: "Start Running button pressed"))
                     runManager.startRun(plan: plan)
                     showRunDetail = true  // 设置状态变量，触发 sheet
                 }) {
-                    Text("开始跑步")
+                    Text(NSLocalizedString("start_running", comment: "Start Running"))
                         .font(.title)
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -78,7 +78,7 @@ struct PlanDetailView: View {
                 .padding()
             }
         }
-        .navigationBarTitle("计划详情", displayMode: .inline)
+        .navigationBarTitle(NSLocalizedString("plan_details", comment: "Plan Details"), displayMode: .inline)
         .sheet(isPresented: $showRunDetail) {
             RunDetailView()
         }

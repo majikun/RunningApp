@@ -1,10 +1,3 @@
-//
-//  RunningRecordDetailView.swift
-//  我的跑步我做主
-//
-//  Created by Jake Ma on 10/21/24.
-//
-
 import SwiftUI
 import MapKit
 
@@ -14,12 +7,12 @@ struct RunningRecordDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("计划名称：\(record.planName ?? "未知计划")")
+                Text(String(format: NSLocalizedString("plan_name_with_value", comment: "Plan Name: %@"), record.planName ?? NSLocalizedString("unknown_plan", comment: "")))
                     .font(.headline)
-                Text("总距离：\(Int(record.totalDistance)) 米")
-                Text("总时间：\(Int(record.totalTime)) 秒")
-                Text("开始时间：\(formattedDate(record.startTime))")
-                Text("结束时间：\(formattedDate(record.endTime))")
+                Text(String(format: NSLocalizedString("total_distance", comment: "Total Distance: %d meters"), Int(record.totalDistance)))
+                Text(String(format: NSLocalizedString("total_time", comment: "Total Time: %d seconds"), Int(record.totalTime)))
+                Text(String(format: NSLocalizedString("start_time", comment: "Start Time: %@"), formattedDate(record.startTime)))
+                Text(String(format: NSLocalizedString("end_time", comment: "End Time: %@"), formattedDate(record.endTime)))
                 
                 // 地图视图
                 MapView(coordinates: record.getCoordinates())
@@ -28,21 +21,21 @@ struct RunningRecordDetailView: View {
                     .padding()
 
                 // 阶段结果列表
-                Text("阶段结果：")
+                Text(NSLocalizedString("stage_results", comment: "Stage Results"))
                     .font(.headline)
                     .padding(.top)
-                ForEach(record.stagesArray, id: \.objectID) { stage in
+                ForEach(record.stagesArray, id: \ .objectID) { stage in
                     VStack(alignment: .leading) {
-                        Text("阶段名称：\(stage.stageName ?? "未知阶段")")
-                        Text("计划距离：\(Int(stage.plannedDistance)) 米")
-                        Text("实际距离：\(Int(stage.actualDistance)) 米")
-                        Text("时间花费：\(Int(stage.timeTaken)) 秒")
+                        Text(String(format: NSLocalizedString("stage_name_with_value", comment: "Stage Name: %@"), stage.stageName ?? NSLocalizedString("unknown_stage", comment: "")))
+                        Text(String(format: NSLocalizedString("planned_distance", comment: "Planned Distance: %d meters"), Int(stage.plannedDistance)))
+                        Text(String(format: NSLocalizedString("actual_distance", comment: "Actual Distance: %d meters"), Int(stage.actualDistance)))
+                        Text(String(format: NSLocalizedString("time_taken", comment: "Time Taken: %d seconds"), Int(stage.timeTaken)))
                     }
                     .padding(.vertical, 5)
                 }
             }
             .padding()
         }
-        .navigationTitle("跑步详情")
+        .navigationTitle(NSLocalizedString("running_details", comment: "Running Details"))
     }
 }

@@ -11,11 +11,11 @@ struct RunDetailView: View {
                 if let tracker = runManager.runTracker {
                     // 计划名称和目标的动态变化
                     HStack {
-                        Text(tracker.planName)
+                        Text(NSLocalizedString(tracker.planName, comment: ""))
                             .font(.title2)
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(tracker.currentStageIndex + 1)/\(tracker.stages.count) 阶段")
+                        Text(String(format: NSLocalizedString("stage_progress", comment: "%d/%d Stages"), tracker.currentStageIndex + 1, tracker.stages.count))
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
@@ -27,11 +27,11 @@ struct RunDetailView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack(spacing: 16) {
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("\(Int(tracker.totalDistance)) 米")
+                                Text(String(format: NSLocalizedString("total_distance_label", comment: "Total Distance: %d meters"), Int(tracker.totalDistance)))
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(.primary)
-                                Text("总距离")
+                                Text(NSLocalizedString("total_distance", comment: ""))
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
@@ -39,11 +39,11 @@ struct RunDetailView: View {
                             Spacer()
                             
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("\(Int(tracker.currentStageDistance)) 米")
+                                Text(String(format: NSLocalizedString("current_stage_distance_label", comment: "Current Stage Distance: %d meters"), Int(tracker.currentStageDistance)))
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundColor(.primary)
-                                Text("\(tracker.currentStageName) \(Int(tracker.currentStageObject)) 米")
+                                Text(String(format: NSLocalizedString("current_stage", comment: "%@ %d meters"), tracker.currentStageName, Int(tracker.currentStageObject)))
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
@@ -62,7 +62,7 @@ struct RunDetailView: View {
                             }) {
                                 HStack {
                                     Image(systemName: runManager.isPaused ? "play.fill" : "pause.fill")
-                                    Text(runManager.isPaused ? "恢复" : "暂停")
+                                    Text(NSLocalizedString(runManager.isPaused ? "resume" : "pause", comment: ""))
                                         .fontWeight(.bold)
                                 }
                                 .font(.title2)
@@ -81,7 +81,7 @@ struct RunDetailView: View {
                             }) {
                                 HStack {
                                     Image(systemName: "stop.fill")
-                                    Text("停止")
+                                    Text(NSLocalizedString("stop", comment: ""))
                                         .fontWeight(.bold)
                                 }
                                 .font(.title2)
@@ -103,7 +103,7 @@ struct RunDetailView: View {
                     ScrollViewReader { proxy in
                         ScrollView {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("阶段进度")
+                                Text(NSLocalizedString("stage_progress_title", comment: "Stage Progress"))
                                     .font(.headline)
                                     .fontWeight(.bold)
                                     .padding(.horizontal, 20)
@@ -113,13 +113,13 @@ struct RunDetailView: View {
                                     let isCurrentStage = index == tracker.currentStageIndex
                                     
                                     HStack(spacing: 16) {
-                                        Text("\(index + 1):")
+                                        Text(String(format: NSLocalizedString("stage_index", comment: "Stage %d"), index + 1))
                                             .frame(width: 30, alignment: .leading)
                                             .foregroundColor(isCurrentStage ? .blue : .primary)
-                                        Text("\(stage.name ?? "未知阶段")")
+                                        Text(stage.name ?? NSLocalizedString("unknown_stage", comment: ""))
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .foregroundColor(isCurrentStage ? .blue : .primary)
-                                        Text("\(Int(stage.distance)) 米")
+                                        Text(String(format: NSLocalizedString("stage_distance_with_value", comment: "%d meters"), Int(stage.distance)))
                                             .frame(width: 80, alignment: .trailing)
                                             .foregroundColor(isCurrentStage ? .blue : .primary)
                                     }
@@ -144,12 +144,12 @@ struct RunDetailView: View {
                         }
                     }
                 } else {
-                    Text("没有进行中的训练")
+                    Text(NSLocalizedString("no_active_training", comment: "No Active Training"))
                         .font(.title2)
                         .padding()
                 }
             }
-            .navigationBarTitle("进行中的训练", displayMode: .inline)
+            .navigationBarTitle(NSLocalizedString("active_training", comment: "Active Training"), displayMode: .inline)
             .preferredColorScheme(.light) // 确保深色模式支持
         }
     }

@@ -11,14 +11,13 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                Text("我的跑步我做主")
+                Text(LocalizedStringKey("my_running_my_choice"))
                     .font(.largeTitle)
                     .padding()
                 
-                
                 if let tracker = runManager.runTracker, runManager.isRunning {
                     NavigationLink(destination: RunDetailView(), isActive: $runManager.showRunDetail) {
-                        Text("继续训练：\(tracker.plan.name!)")
+                        Text(String(format: NSLocalizedString("continue_training", comment: ""), tracker.plan.name ?? ""))
                             .font(.title2)
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -29,19 +28,17 @@ struct MainView: View {
                     .padding(.horizontal)
                 }
                 
-                // 修改后的 List 部分
                 List {
-                    ForEach(runPlans, id: \.objectID) { plan in
+                    ForEach(runPlans, id: \RunPlan.objectID) { plan in
                         HStack {
-                            // 计划摘要部分，不再可点击
                             NavigationLink(destination: PlanDetailView(plan: plan)) {
                                 VStack(alignment: .leading, spacing: 5) {
-                                    Text(plan.name ?? "未知计划")
+                                    Text(plan.name ?? NSLocalizedString("unknown_plan", comment: ""))
                                         .font(.headline)
-                                    Text("总阶段数: \(plan.stages?.count ?? 0)")
+                                    Text(String(format: NSLocalizedString("total_stages", comment: "Total number of stages in the plan: %d"), plan.stages?.count ?? 0))
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
-                                    Text("总距离: \(Int(plan.totalDistance)) m")
+                                    Text(String(format: NSLocalizedString("total_distance_label", comment: "Total distance of the plan: %d meters"), Int(plan.totalDistance)))
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
                                 }
@@ -57,7 +54,7 @@ struct MainView: View {
                                             runManager.showRunDetail = true
                                         }
                                     }) {
-                                        Text("开始")
+                                        Text(LocalizedStringKey("start"))
                                             .font(.headline)
                                             .padding(.horizontal, 15)
                                             .padding(.vertical, 5)
@@ -75,42 +72,49 @@ struct MainView: View {
                 .listStyle(PlainListStyle())
                 
                 Spacer()
-                //--------底部按钮---------
-                HStack {
+                HStack(spacing: 15) { // Adjusted spacing to prevent line breaks
                     NavigationLink(destination: HistoryListView()) {
-                        Text("历史")
-                            .font(.title2)
+                        Image(systemName: "clock.fill")
+                            .font(.largeTitle)
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.gray)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .padding(.horizontal)
                     
                     NavigationLink(destination: ManageRunPlansView()) {
-                        Text("管理")
-                            .font(.title2)
+                        Image(systemName: "gearshape.fill")
+                            .font(.largeTitle)
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .padding(.horizontal)
                     
                     NavigationLink(destination: DiagnosticsView()) {
-                        Text("诊断")
-                            .font(.title2)
+                        Image(systemName: "stethoscope")
+                            .font(.largeTitle)
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.purple)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .padding(.horizontal)
+                    
+                    NavigationLink(destination: AboutView()) { // New About button
+                        Image(systemName: "info.circle.fill")
+                            .font(.largeTitle)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.orange)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
                 }
-                .padding()
+                .padding(.horizontal)
+                .padding(.bottom)
             }
         }
         .sheet(isPresented: $runManager.showPlanDetail) {
