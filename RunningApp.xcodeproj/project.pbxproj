@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		300F58252C8AEF2500F1A7F5 /* RunningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58242C8AEF2500F1A7F5 /* RunningApp.swift */; };
 		300F58272C8AEF2500F1A7F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58262C8AEF2500F1A7F5 /* ContentView.swift */; };
-		300F582B2C8AEF2700F1A7F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */; };
 		300F582E2C8AEF2700F1A7F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300F582D2C8AEF2700F1A7F5 /* Preview Assets.xcassets */; };
 		300F58422C8AEF2800F1A7F5 /* _______UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58412C8AEF2800F1A7F5 /* _______UITests.swift */; };
 		300F58442C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58432C8AEF2800F1A7F5 /* _______UITestsLaunchTests.swift */; };
 		300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */; };
 		300F58592C8AF22C00F1A7F5 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */; };
 		30340FEA2CC8E871002D12C5 /* RunPlanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30340FE82CC8E871002D12C5 /* RunPlanModel.xcdatamodeld */; };
-		30340FEC2CC8E8B0002D12C5 /* RunningAppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30340FEB2CC8E8B0002D12C5 /* RunningAppInfo.plist */; };
 		30340FEF2CCA1194002D12C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30340FED2CCA1194002D12C5 /* Localizable.strings */; };
 		30340FF02CCA1194002D12C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30340FED2CCA1194002D12C5 /* Localizable.strings */; };
 		30340FF12CCA1194002D12C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30340FED2CCA1194002D12C5 /* Localizable.strings */; };
@@ -25,6 +23,9 @@
 		303AFCF82CCB4B8F0099FEB7 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AFCF72CCB4B8F0099FEB7 /* StatisticsView.swift */; };
 		303AFCFA2CCB76FE0099FEB7 /* StatisticsCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AFCF92CCB76FE0099FEB7 /* StatisticsCalculator.swift */; };
 		303AFCFC2CCB901E0099FEB7 /* StatisticsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AFCFB2CCB901E0099FEB7 /* StatisticsChartView.swift */; };
+		303AFD002CCBC51C0099FEB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303AFCFF2CCBC51C0099FEB7 /* Assets.xcassets */; };
+		303AFD092CCBCCD10099FEB7 /* RunningAppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30340FEB2CC8E8B0002D12C5 /* RunningAppInfo.plist */; };
+		303AFD0B2CCBE3A00099FEB7 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 303AFD0A2CCBE3A00099FEB7 /* InfoPlist.xcstrings */; };
 		304B281E2CB9041900FE65DA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B281D2CB9041800FE65DA /* WidgetKit.framework */; };
 		304B28202CB9041900FE65DA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B281F2CB9041900FE65DA /* SwiftUI.framework */; };
 		304B28232CB9041900FE65DA /* RunningWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28222CB9041900FE65DA /* RunningWidgetBundle.swift */; };
@@ -107,7 +108,6 @@
 		300F58212C8AEF2500F1A7F5 /* RunningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		300F58242C8AEF2500F1A7F5 /* RunningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningApp.swift; sourceTree = "<group>"; };
 		300F58262C8AEF2500F1A7F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		300F582D2C8AEF2700F1A7F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		300F58332C8AEF2800F1A7F5 /* RunningAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunningAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		300F583D2C8AEF2800F1A7F5 /* RunningAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunningAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,20 +116,22 @@
 		300F58562C8AF1FC00F1A7F5 /* RunTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTracker.swift; sourceTree = "<group>"; };
 		300F58582C8AF22C00F1A7F5 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
 		30340FE92CC8E871002D12C5 /* RunPlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunPlanModel.xcdatamodel; sourceTree = "<group>"; };
-		30340FEB2CC8E8B0002D12C5 /* RunningAppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RunningAppInfo.plist; sourceTree = SOURCE_ROOT; };
+		30340FEB2CC8E8B0002D12C5 /* RunningAppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RunningAppInfo.plist; path = RunningApp/RunningAppInfo.plist; sourceTree = SOURCE_ROOT; };
 		30340FEE2CCA1194002D12C5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		30340FF32CCA127C002D12C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30340FF42CCA1C45002D12C5 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		303AFCF72CCB4B8F0099FEB7 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		303AFCF92CCB76FE0099FEB7 /* StatisticsCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCalculator.swift; sourceTree = "<group>"; };
 		303AFCFB2CCB901E0099FEB7 /* StatisticsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsChartView.swift; sourceTree = "<group>"; };
+		303AFCFF2CCBC51C0099FEB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		303AFD0A2CCBE3A00099FEB7 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		304B281B2CB9041800FE65DA /* RunningWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunningWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		304B281D2CB9041800FE65DA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		304B281F2CB9041900FE65DA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		304B28222CB9041900FE65DA /* RunningWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningWidgetBundle.swift; sourceTree = "<group>"; };
 		304B28242CB9041900FE65DA /* RunningWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningWidgetLiveActivity.swift; sourceTree = "<group>"; };
 		304B282A2CB9041C00FE65DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		304B282C2CB9041C00FE65DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		304B282C2CB9041C00FE65DA /* WidgetInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WidgetInfo.plist; sourceTree = "<group>"; };
 		304B28362CB904BE00FE65DA /* LockScreenLiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenLiveActivityView.swift; sourceTree = "<group>"; };
 		304B28382CB9060E00FE65DA /* RunningWidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningWidgetAttributes.swift; sourceTree = "<group>"; };
 		304B283D2CB90A5B00FE65DA /* RunningWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningWidget.swift; sourceTree = "<group>"; };
@@ -225,7 +227,6 @@
 		300F58232C8AEF2500F1A7F5 /* RunningApp */ = {
 			isa = PBXGroup;
 			children = (
-				30340FEB2CC8E8B0002D12C5 /* RunningAppInfo.plist */,
 				30FCB0372C9422DF00258BAF /* Resource */,
 				300F58512C8AF17A00F1A7F5 /* ViewModels */,
 				300F58532C8AF18C00F1A7F5 /* Views */,
@@ -234,8 +235,9 @@
 				300F58522C8AF18300F1A7F5 /* Utilities */,
 				300F58242C8AEF2500F1A7F5 /* RunningApp.swift */,
 				300F58262C8AEF2500F1A7F5 /* ContentView.swift */,
-				300F582A2C8AEF2700F1A7F5 /* Assets.xcassets */,
 				300F582C2C8AEF2700F1A7F5 /* Preview Content */,
+				30340FEB2CC8E8B0002D12C5 /* RunningAppInfo.plist */,
+				303AFCFF2CCBC51C0099FEB7 /* Assets.xcassets */,
 			);
 			path = RunningApp;
 			sourceTree = "<group>";
@@ -336,7 +338,7 @@
 				304B28222CB9041900FE65DA /* RunningWidgetBundle.swift */,
 				304B28242CB9041900FE65DA /* RunningWidgetLiveActivity.swift */,
 				304B282A2CB9041C00FE65DA /* Assets.xcassets */,
-				304B282C2CB9041C00FE65DA /* Info.plist */,
+				304B282C2CB9041C00FE65DA /* WidgetInfo.plist */,
 			);
 			path = RunningWidget;
 			sourceTree = "<group>";
@@ -346,6 +348,7 @@
 			children = (
 				304B28382CB9060E00FE65DA /* RunningWidgetAttributes.swift */,
 				30340FED2CCA1194002D12C5 /* Localizable.strings */,
+				303AFD0A2CCBE3A00099FEB7 /* InfoPlist.xcstrings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -515,11 +518,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303AFD0B2CCBE3A00099FEB7 /* InfoPlist.xcstrings in Resources */,
+				303AFD092CCBCCD10099FEB7 /* RunningAppInfo.plist in Resources */,
 				30340FEF2CCA1194002D12C5 /* Localizable.strings in Resources */,
-				30340FEC2CC8E8B0002D12C5 /* RunningAppInfo.plist in Resources */,
 				300F582E2C8AEF2700F1A7F5 /* Preview Assets.xcassets in Resources */,
 				30FCB03B2C9424B900258BAF /* runplans.json in Resources */,
-				300F582B2C8AEF2700F1A7F5 /* Assets.xcassets in Resources */,
+				303AFD002CCBC51C0099FEB7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,10 +789,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RunningApp/Preview Content\"";
-				DEVELOPMENT_TEAM = A52XBB687P;
+				DEVELOPMENT_TEAM = 6QGBC86QL9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunningAppInfo.plist;
+				INFOPLIST_FILE = Runningapp/RunningAppInfo.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
@@ -804,7 +808,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunningApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunFlexApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -821,10 +825,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RunningApp/Preview Content\"";
-				DEVELOPMENT_TEAM = A52XBB687P;
+				DEVELOPMENT_TEAM = 6QGBC86QL9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunningAppInfo.plist;
+				INFOPLIST_FILE = Runningapp/RunningAppInfo.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "应用需要使用您的位置信息以便记录跑步轨迹";
@@ -840,7 +844,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunningApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunFlexApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -927,9 +931,9 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A52XBB687P;
+				DEVELOPMENT_TEAM = 6QGBC86QL9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunningWidget/Info.plist;
+				INFOPLIST_FILE = RunningWidget/WidgetInfo.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RunningWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -938,7 +942,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunningApp.RunningWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunFlexApp.RunningWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -954,9 +958,9 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A52XBB687P;
+				DEVELOPMENT_TEAM = 6QGBC86QL9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunningWidget/Info.plist;
+				INFOPLIST_FILE = RunningWidget/WidgetInfo.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RunningWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -965,7 +969,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunningApp.RunningWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jake-Ma.RunFlexApp.RunningWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
