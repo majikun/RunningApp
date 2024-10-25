@@ -93,16 +93,6 @@ struct MainView: View {
                             .cornerRadius(10)
                     }
                     
-                    NavigationLink(destination: DiagnosticsView()) {
-                        Image(systemName: "stethoscope")
-                            .font(.largeTitle)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.purple)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    
                     NavigationLink(destination: AboutView()) { // New About button
                         Image(systemName: "info.circle.fill")
                             .font(.largeTitle)

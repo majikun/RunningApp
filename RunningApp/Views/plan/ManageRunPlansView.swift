@@ -68,8 +68,14 @@ struct EditRunPlanView: View {
             }
             .foregroundColor(isDuplicateName ? .red : .primary)
             
+            HStack {
+                Text(NSLocalizedString("stage_count", comment: "Stage Count: ") + " \(runPlan.stagesArray.count)")
+                Text(NSLocalizedString("total_distance", comment: "Total Distance: ") + " \(runPlan.stagesArray.reduce(0) { $0 + $1.distance })")
+            }
+            .padding()
+            
             List {
-                ForEach(runPlan.stagesArray, id: \.objectID) { stage in
+                ForEach(runPlan.stagesArray.sorted(by: { $0.index < $1.index }), id: \.objectID) { stage in
                     HStack {
                         TextField(NSLocalizedString("stage_name", comment: "Stage Name"), text: Binding(
                             get: { stage.name ?? "" },
@@ -88,7 +94,9 @@ struct EditRunPlanView: View {
                     }
                 }
                 .onDelete(perform: deleteStage)
+                .onMove(perform: moveStage)
             }
+            .environment(\.editMode, .constant(.active))
             
             Button(NSLocalizedString("add_new_stage", comment: "Add New Stage")) {
                 showAddStageSheet.toggle()
@@ -112,24 +120,32 @@ struct EditRunPlanView: View {
                     }
                 }, nextIndex: runPlan.stagesArray.count)
             }
-            
-            Button(action: shareRunPlan) {
-                Image(systemName: "square.and.arrow.up")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .padding()
-            }
-            .alert(isPresented: $showingCopiedAlert) {
-                Alert(title: Text(NSLocalizedString("copied_to_clipboard", comment: "Copied to Clipboard")), message: nil, dismissButton: .default(Text(NSLocalizedString("ok", comment: "OK"))))
-            }
         }
         .navigationTitle(NSLocalizedString("edit_run_plan", comment: "Edit Run Plan"))
+        .navigationBarItems(trailing: Button(action: shareRunPlan) {
+            Image(systemName: "square.and.arrow.up")
+                .resizable()
+                .frame(width: 24, height: 24)
+                .padding()
+        })
+        .alert(isPresented: $showingCopiedAlert) {
+            Alert(title: Text(NSLocalizedString("copied_to_clipboard", comment: "Copied to Clipboard")), message: Text(NSLocalizedString("share_instructions", comment: "Run plan copied to clipboard. You can now share it by pasting it into a message or email.")), dismissButton: .default(Text(NSLocalizedString("ok", comment: "OK"))))
+        }
     }
     
     private func deleteStage(at offsets: IndexSet) {
         for index in offsets {
             let stage = runPlan.stagesArray[index]
             CoreDataManager.shared.context.delete(stage)
+        }
+        CoreDataManager.shared.saveContext()
+    }
+    
+    private func moveStage(from source: IndexSet, to destination: Int) {
+        var reorderedStages = runPlan.stagesArray.sorted(by: { $0.index < $1.index })
+        reorderedStages.move(fromOffsets: source, toOffset: destination)
+        for (newIndex, stage) in reorderedStages.enumerated() {
+            stage.index = Int64(newIndex)
         }
         CoreDataManager.shared.saveContext()
     }
@@ -168,14 +184,15 @@ struct EditRunPlanView: View {
     }
 }
 
+
 struct AddRunPlanView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var context
     @State private var planName: String = ""
     @State private var stages: [RunStage] = []
-    @State private var pastedText: String = ""
     @State private var isDuplicateName = false
     @State private var showingParseErrorAlert = false
+    @State private var editMode: EditMode = .active
     
     var body: some View {
         NavigationView {
@@ -191,23 +208,13 @@ struct AddRunPlanView: View {
                     }
                 }
                 
-                Section(header: Text(NSLocalizedString("paste_and_identify", comment: "Paste and Identify"))) {
-                    TextEditor(text: $pastedText)
-                        .frame(minHeight: 100)
-                    
-                    Button(NSLocalizedString("paste_and_identify", comment: "Paste and Identify")) {
-                        if let clipboardText = UIPasteboard.general.string {
-                            pastedText = clipboardText
-                            if pastedText.isEmpty || !isValidPlan(pastedText) {
-                                showingParseErrorAlert = true
-                            } else {
-                                addRunPlan(from: pastedText)
-                            }
-                        }
+                Section(header: Text(NSLocalizedString("stage_summary", comment: "Stage Summary"))) {
+                    HStack {
+                        Text(NSLocalizedString("stage_count", comment: "Stage Count: ") + " \(stages.count)")
+                        Spacer()
+                        Text(NSLocalizedString("total_distance", comment: "Total Distance: ") + " \(stages.reduce(0) { $0 + $1.distance })")
                     }
-                    .alert(isPresented: $showingParseErrorAlert) {
-                        Alert(title: Text(NSLocalizedString("parse_failed", comment: "Parse Failed")), message: Text(NSLocalizedString("cannot_parse_text", comment: "Cannot parse pasted text, please check the input.")), dismissButton: .default(Text(NSLocalizedString("ok", comment: "OK"))))
-                    }
+                    .padding(.vertical, 8)
                 }
                 
                 Section(header: Text(NSLocalizedString("stage_name", comment: "Stages"))) {
@@ -225,7 +232,9 @@ struct AddRunPlanView: View {
                             }
                         }
                         .onDelete(perform: deleteStage)
+                        .onMove(perform: moveStage)
                     }
+                    .environment(\.editMode, $editMode)
                     Button(NSLocalizedString("add_stage", comment: "Add Stage")) {
                         let newStage = RunStage(context: CoreDataManager.shared.context)
                         newStage.id = UUID()
@@ -238,23 +247,38 @@ struct AddRunPlanView: View {
             .navigationTitle(NSLocalizedString("add_run_plan", comment: "Add Run Plan"))
             .navigationBarItems(leading: Button(NSLocalizedString("cancel", comment: "Cancel")) {
                 dismiss()
-            }, trailing: Button(NSLocalizedString("add", comment: "Add")) {
-                if !isDuplicateName {
-                    let newPlan = RunPlan(context: context)
-                    newPlan.id = UUID()
-                    newPlan.name = planName
-                    for stageData in stages {
-                        let newStage = RunStage(context: context)
-                        newStage.id = UUID()
-                        newStage.name = stageData.name
-                        newStage.distance = stageData.distance
-                        newStage.index = Int64(stages.firstIndex(of: stageData) ?? 0)
-                        newStage.plan = newPlan
+            }, trailing: HStack {
+                Button(NSLocalizedString("paste_and_identify", comment: "Paste and Identify")) {
+                    if let clipboardText = UIPasteboard.general.string {
+                        if clipboardText.isEmpty || !isValidPlan(clipboardText) {
+                            showingParseErrorAlert = true
+                        } else {
+                            addRunPlan(from: clipboardText)
+                        }
                     }
-                    CoreDataManager.shared.saveContext()
-                    dismiss()
+                }
+                Button(NSLocalizedString("add", comment: "Add")) {
+                    if !isDuplicateName {
+                        let newPlan = RunPlan(context: context)
+                        newPlan.id = UUID()
+                        newPlan.name = planName
+                        for stageData in stages {
+                            let newStage = RunStage(context: context)
+                            newStage.id = UUID()
+                            newStage.name = stageData.name
+                            newStage.distance = stageData.distance
+                            newStage.index = Int64(stages.firstIndex(of: stageData) ?? 0)
+                            newStage.plan = newPlan
+                        }
+                        CoreDataManager.shared.saveContext()
+                        dismiss()
+                    }
                 }
             })
+            .alert(isPresented: $showingParseErrorAlert) {
+                Alert(title: Text(NSLocalizedString("parse_failed", comment: "Parse Failed")), message: Text(NSLocalizedString("cannot_parse_text", comment: "Cannot parse pasted text, please check the input.")), dismissButton: .default(Text(NSLocalizedString("ok", comment: "OK"))))
+            }
+            .environment(\.editMode, $editMode)
         }
     }
     
@@ -306,7 +330,16 @@ struct AddRunPlanView: View {
     private func deleteStage(at offsets: IndexSet) {
         stages.remove(atOffsets: offsets)
     }
+    
+    private func moveStage(from source: IndexSet, to destination: Int) {
+        stages.move(fromOffsets: source, toOffset: destination)
+        for (index, stage) in stages.enumerated() {
+            stage.index = Int64(index)
+        }
+        CoreDataManager.shared.saveContext()
+    }
 }
+
 
 struct AddRunStageView: View {
     @Environment(\.dismiss) private var dismiss

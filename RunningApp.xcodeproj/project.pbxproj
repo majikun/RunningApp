@@ -58,7 +58,6 @@
 		30AE45862CC3694000DCA7F9 /* RunStage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45822CC3694000DCA7F9 /* RunStage+CoreDataClass.swift */; };
 		30AE45872CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45832CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift */; };
 		30AE45892CC3F3FE00DCA7F9 /* RunPlanExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE45882CC3F3FE00DCA7F9 /* RunPlanExtension.swift */; };
-		30AE458B2CC4752700DCA7F9 /* DiagnosticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE458A2CC4752700DCA7F9 /* DiagnosticsView.swift */; };
 		30FCB03B2C9424B900258BAF /* runplans.json in Resources */ = {isa = PBXBuildFile; fileRef = 30FCB03A2C9424B900258BAF /* runplans.json */; };
 		30FCB0452C95795200258BAF /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCB0442C95795200258BAF /* RunManager.swift */; };
 /* End PBXBuildFile section */
@@ -154,7 +153,6 @@
 		30AE45822CC3694000DCA7F9 /* RunStage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunStage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		30AE45832CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunStage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		30AE45882CC3F3FE00DCA7F9 /* RunPlanExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPlanExtension.swift; sourceTree = "<group>"; };
-		30AE458A2CC4752700DCA7F9 /* DiagnosticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsView.swift; sourceTree = "<group>"; };
 		30FCB03A2C9424B900258BAF /* runplans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runplans.json; sourceTree = "<group>"; };
 		30FCB0442C95795200258BAF /* RunManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,7 +305,6 @@
 				3058D35A2CC7D13700B90DA8 /* history */,
 				3058D3592CC7D11300B90DA8 /* plan */,
 				307457ED2C8B085E00843C84 /* RunDetailView.swift */,
-				30AE458A2CC4752700DCA7F9 /* DiagnosticsView.swift */,
 				309F49E72CC65BF1005ACA28 /* MainView.swift */,
 				30340FF42CCA1C45002D12C5 /* AboutView.swift */,
 			);
@@ -551,7 +548,6 @@
 			files = (
 				304B28392CB9060E00FE65DA /* RunningWidgetAttributes.swift in Sources */,
 				300F58572C8AF1FC00F1A7F5 /* RunTracker.swift in Sources */,
-				30AE458B2CC4752700DCA7F9 /* DiagnosticsView.swift in Sources */,
 				30340FEA2CC8E871002D12C5 /* RunPlanModel.xcdatamodeld in Sources */,
 				300F58592C8AF22C00F1A7F5 /* SpeechManager.swift in Sources */,
 				30AE45892CC3F3FE00DCA7F9 /* RunPlanExtension.swift in Sources */,

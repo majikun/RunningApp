@@ -66,6 +66,7 @@
 "view_current_training" = "View Current Training";
 "add_stage" = "Add Stage";
 "copied_to_clipboard" = "Copied to Clipboard";
+"share_instructions" = "Run plan copied to clipboard. You can now share it by pasting it into a message or email.";
 "share_failed" = "Share Failed";
 "paste_and_identify" = "Paste and Identify";
 "parse_failed" = "Parse Failed";
@@ -79,7 +80,25 @@
 "stage_details" = "Stage Details";
 "stage_number" = "Stage %d: %@";
 "stage_distance" = "Stage Distance (meters)";
+"stage_count" = "Stage Count:";
 
 /* English - Announcements */
 "announce_stage" = "Start %@ %d meters";
 "announce_completion" = "Congratulations on completing your training, covering a total of %d meters";
+
+"Location_Authorized" = "Location services authorized";
+"Location_Disabled_Title" = "Location Services Disabled";
+"Location_Disabled_Message" = "Please go to Settings to enable location services.";
+"Background_Refresh_Enabled" = "Background refresh enabled";
+"Background_Refresh_Disabled_Title" = "Background Refresh Disabled";
+"Background_Refresh_Disabled_Message" = "Please go to Settings to enable background app refresh.";
+"Background_Refresh_Restricted" = "Background refresh restricted";
+"Notifications_Authorized" = "Notifications authorized";
+"Notifications_Authorization_Success" = "Notification authorization succeeded";
+"Notifications_Authorization_Failure" = "Notification authorization failed";
+"Notifications_Disabled_Title" = "Notifications Disabled";
+"Notifications_Disabled_Message" = "Please go to Settings to enable notifications.";
+"Screen_Lock_Disabled_Title" = "Screen Lock Disabled";
+"Screen_Lock_Disabled_Message" = "Please go to Settings to enable screen lock permission.";
+"Settings" = "Settings";
+"Cancel" = "Cancel";

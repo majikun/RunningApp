@@ -26,6 +26,10 @@
 "another_training_in_progress" = "已有进行中的训练";
 "run_paused" = "运动已暂停";
 "run_resumed" = "运动已恢复";
+"pause" = "暂停";
+"stop" = "结束";
+"resume" = "恢复";
+
 
 /* Chinese - Stage Information */
 "stage_progress" = "%d/%d 阶段";
@@ -50,6 +54,7 @@
 "default_plan_name" = "默认计划名称";
 "plan_details" = "计划详情";
 "plan" = "计划：%@";
+"share_instructions" = "运行计划已复制到剪贴板。您现在可以通过粘贴到消息或电子邮件中进行分享。";
 
 /* Chinese - Distance and Time */
 "total_distance_label" = "总距离：%d 米";
@@ -79,7 +84,25 @@
 "stage_details" = "阶段详情";
 "stage_number" = "阶段 %d: %@";
 "stage_distance" = "阶段距离（米）";
+"stage_count" = "阶段数量：";
 
 /* Chinese - Announcements */
 "announce_stage" = "开始%@%d米";
 "announce_completion" = "恭喜你完成本次训练，总共锻炼%d米";
+
+"Location_Authorized" = "位置服务已授权";
+"Location_Disabled_Title" = "位置服务未启用";
+"Location_Disabled_Message" = "请前往设置以启用位置权限。";
+"Background_Refresh_Enabled" = "后台刷新已启用";
+"Background_Refresh_Disabled_Title" = "后台刷新未启用";
+"Background_Refresh_Disabled_Message" = "请前往设置以启用后台应用刷新。";
+"Background_Refresh_Restricted" = "后台刷新受限制";
+"Notifications_Authorized" = "通知已授权";
+"Notifications_Authorization_Success" = "通知授权成功";
+"Notifications_Authorization_Failure" = "通知授权失败";
+"Notifications_Disabled_Title" = "通知未启用";
+"Notifications_Disabled_Message" = "请前往设置以启用通知权限。";
+"Screen_Lock_Disabled_Title" = "屏幕锁定未启用";
+"Screen_Lock_Disabled_Message" = "请前往设置以启用屏幕锁定权限。";
+"Settings" = "设置";
+"Cancel" = "取消";

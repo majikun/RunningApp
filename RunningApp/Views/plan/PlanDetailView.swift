@@ -20,7 +20,7 @@ struct PlanDetailView: View {
                     HStack {
                         Text(String(format: NSLocalizedString("stage_number", comment: "Stage %d: %@"), stage.index + 1, stage.name ?? NSLocalizedString("unknown_stage", comment: "Unknown Stage")))
                         Spacer()
-                        Text(String(format: NSLocalizedString("stage_distance_label", comment: "Distance: %d meters"), Int(stage.distance)))
+                        Text(String(format: NSLocalizedString("stage_distance_with_value", comment: "Distance: %d meters"), Int(stage.distance)))
                     }
                 }
             }
