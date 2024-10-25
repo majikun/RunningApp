@@ -102,3 +102,27 @@
 "Screen_Lock_Disabled_Message" = "Please go to Settings to enable screen lock permission.";
 "Settings" = "Settings";
 "Cancel" = "Cancel";
+
+/* Total distance covered */
+"total_distance_format" = "Total Distance: %.0f m";
+/* Total number of runs */
+"total_runs_format" = "Total Runs: %d";
+/* Total time spent running */
+"total_time_format" = "Total Time: %@";
+/* Statistics view title */
+"statistics_title" = "Statistics";
+/* Chart title for selected period */
+"chart_for_period_format" = "Chart for %@ period";
+/* Weekly period */
+"weekly_period" = "Weekly";
+/* Monthly period */
+"monthly_period" = "Monthly";
+/* Yearly period */
+"yearly_period" = "Yearly";
+/* Overall period */
+"overall_period" = "Overall";
+/* Select date for statistics */
+"select_date" = "Select Date";
+/* Week range text */
+"week_range_format" = "%@-%@";
+

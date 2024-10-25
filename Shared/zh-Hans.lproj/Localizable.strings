@@ -106,3 +106,27 @@
 "Screen_Lock_Disabled_Message" = "请前往设置以启用屏幕锁定权限。";
 "Settings" = "设置";
 "Cancel" = "取消";
+
+/* Total distance covered */
+"total_distance_format" = "总距离：%.0f 米";
+/* Total number of runs */
+"total_runs_format" = "总跑步次数：%d";
+/* Total time spent running */
+"total_time_format" = "总时间：%@";
+/* Statistics view title */
+"statistics_title" = "统计";
+/* Chart title for selected period */
+"chart_for_period_format" = "%@阶段的图表";
+/* Weekly period */
+"weekly_period" = "每周";
+/* Monthly period */
+"monthly_period" = "每月";
+/* Yearly period */
+"yearly_period" = "每年";
+/* Overall period */
+"overall_period" = "总体";
+/* Select date for statistics */
+"select_date" = "选择日期";
+/* Week range text */
+"week_range_format" = "%@-%@";
+

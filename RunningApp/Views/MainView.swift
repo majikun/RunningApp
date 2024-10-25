@@ -83,6 +83,16 @@ struct MainView: View {
                             .cornerRadius(10)
                     }
                     
+                    NavigationLink(destination: StatisticsView()) {
+                        Image(systemName: "table.fill")
+                            .font(.largeTitle)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    
                     NavigationLink(destination: ManageRunPlansView()) {
                         Image(systemName: "gearshape.fill")
                             .font(.largeTitle)

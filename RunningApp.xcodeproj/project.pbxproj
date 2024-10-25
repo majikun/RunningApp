@@ -22,6 +22,9 @@
 		30340FF12CCA1194002D12C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30340FED2CCA1194002D12C5 /* Localizable.strings */; };
 		30340FF22CCA1194002D12C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30340FED2CCA1194002D12C5 /* Localizable.strings */; };
 		30340FF52CCA1C45002D12C5 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30340FF42CCA1C45002D12C5 /* AboutView.swift */; };
+		303AFCF82CCB4B8F0099FEB7 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AFCF72CCB4B8F0099FEB7 /* StatisticsView.swift */; };
+		303AFCFA2CCB76FE0099FEB7 /* StatisticsCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AFCF92CCB76FE0099FEB7 /* StatisticsCalculator.swift */; };
+		303AFCFC2CCB901E0099FEB7 /* StatisticsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303AFCFB2CCB901E0099FEB7 /* StatisticsChartView.swift */; };
 		304B281E2CB9041900FE65DA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B281D2CB9041800FE65DA /* WidgetKit.framework */; };
 		304B28202CB9041900FE65DA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304B281F2CB9041900FE65DA /* SwiftUI.framework */; };
 		304B28232CB9041900FE65DA /* RunningWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B28222CB9041900FE65DA /* RunningWidgetBundle.swift */; };
@@ -117,6 +120,9 @@
 		30340FEE2CCA1194002D12C5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		30340FF32CCA127C002D12C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30340FF42CCA1C45002D12C5 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		303AFCF72CCB4B8F0099FEB7 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		303AFCF92CCB76FE0099FEB7 /* StatisticsCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCalculator.swift; sourceTree = "<group>"; };
+		303AFCFB2CCB901E0099FEB7 /* StatisticsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsChartView.swift; sourceTree = "<group>"; };
 		304B281B2CB9041800FE65DA /* RunningWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RunningWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		304B281D2CB9041800FE65DA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		304B281F2CB9041900FE65DA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -359,6 +365,9 @@
 				30712FDC2C8C07C800E5D69B /* MapView.swift */,
 				309F49E12CC64C0E005ACA28 /* RunningRecordDetailView.swift */,
 				309F49ED2CC65CD2005ACA28 /* HistoryListView.swift */,
+				303AFCF72CCB4B8F0099FEB7 /* StatisticsView.swift */,
+				303AFCF92CCB76FE0099FEB7 /* StatisticsCalculator.swift */,
+				303AFCFB2CCB901E0099FEB7 /* StatisticsChartView.swift */,
 			);
 			path = history;
 			sourceTree = "<group>";
@@ -553,6 +562,7 @@
 				30AE45892CC3F3FE00DCA7F9 /* RunPlanExtension.swift in Sources */,
 				30712FE02C92D7A600E5D69B /* LocationManager.swift in Sources */,
 				300F58272C8AEF2500F1A7F5 /* ContentView.swift in Sources */,
+				303AFCFA2CCB76FE0099FEB7 /* StatisticsCalculator.swift in Sources */,
 				309F49E82CC65BF1005ACA28 /* MainView.swift in Sources */,
 				30712FE22C92D7DC00E5D69B /* BackgroundTaskManager.swift in Sources */,
 				309F49E22CC64C0E005ACA28 /* RunningRecordDetailView.swift in Sources */,
@@ -565,11 +575,13 @@
 				309F49EC2CC65C32005ACA28 /* PlanDetailView.swift in Sources */,
 				30AE45862CC3694000DCA7F9 /* RunStage+CoreDataClass.swift in Sources */,
 				30AE45872CC3694000DCA7F9 /* RunStage+CoreDataProperties.swift in Sources */,
+				303AFCF82CCB4B8F0099FEB7 /* StatisticsView.swift in Sources */,
 				30712FDD2C8C07C800E5D69B /* MapView.swift in Sources */,
 				30FCB0452C95795200258BAF /* RunManager.swift in Sources */,
 				309F49E52CC654CA005ACA28 /* RunningRecord+CoreDataClass.swift in Sources */,
 				309F49E62CC654CA005ACA28 /* RunningRecord+CoreDataProperties.swift in Sources */,
 				309F49D42CC62146005ACA28 /* SharedRunPlan.swift in Sources */,
+				303AFCFC2CCB901E0099FEB7 /* StatisticsChartView.swift in Sources */,
 				307457F02C8B141200843C84 /* RunRecord.swift in Sources */,
 				300F58252C8AEF2500F1A7F5 /* RunningApp.swift in Sources */,
 				309F49EE2CC65CD2005ACA28 /* HistoryListView.swift in Sources */,
